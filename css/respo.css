@@ -90,8 +90,12 @@
     min-height: calc(100dvh - 214px);
   }
 
+  .hero::after {
+    z-index: 0;
+  }
+
   .hero-inner {
-    height: auto;
+    height: calc(100dvh - 214px);
     flex-direction: column;
     justify-content: flex-end;
     text-align: center;
@@ -103,6 +107,10 @@
   .hero-image {
     width: min(70vw, 340px);
     align-self: center;
+  }
+
+  .hero-content {
+    justify-content: center;
   }
 
   .hero-text {

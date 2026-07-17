@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./css/animation.css" />
     <link rel="stylesheet" href="./css/respo.css" />
 
+    <script src="./js/translate.js" defer></script>
     <script src="./js/main.js" defer></script>
   </head>
   <body>
@@ -37,10 +38,10 @@
 
           <div class="nav-menu" id="navMenu">
             <nav class="nav-links">
-              <a href="#about">Über mich</a>
-              <a href="#skills">Fähigkeiten</a>
-              <a href="#portfolio">Portfolio</a>
-              <a href="#contact">Kontakt</a>
+              <a href="#about" data-i18n="nav.about">Über mich</a>
+              <a href="#skills" data-i18n="nav.skills">Fähigkeiten</a>
+              <a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a>
+              <a href="#contact" data-i18n="nav.contact">Kontakt</a>
             </nav>
 
             <div class="lang-switch">
@@ -54,6 +55,7 @@
             id="navToggle"
             type="button"
             aria-label="Menü öffnen"
+            data-i18n-aria="nav.toggleAria"
             aria-expanded="false"
             aria-controls="navMenu"
           >
@@ -82,22 +84,21 @@
       </header>
 
       <section class="box hero" id="home">
-        <div class="hero-glow hero-glow--purple"></div>
-        <div class="hero-glow hero-glow--green"></div>
-
         <div class="hero-inner">
           <div class="hero-image">
+            <div class="hero-glow hero-glow--purple"></div>
+            <div class="hero-glow hero-glow--green"></div>
             <img src="./assets/img/Justin.png" alt="Justin Kamionka" />
           </div>
 
           <div class="hero-content box">
             <div class="hero-text">
               <div class="hero-split">
-                <span class="hero-iam">Ich bin</span>
+                <span class="hero-iam" data-i18n="hero.iam">Ich bin</span>
                 <h1>Justin Kamionka</h1>
-                <p class="hero-role">Frontend Developer</p>
+                <p class="hero-role" data-i18n="hero.role">Frontend Developer</p>
               </div>
-              <a class="btn-primary" href="#contact">Lass uns reden!</a>
+              <a class="btn-primary" href="#contact" data-i18n="hero.cta">Lass uns reden!</a>
             </div>
           </div>
         </div>
@@ -158,8 +159,8 @@
       <section class="about box" id="about">
         <div class="container about-inner">
           <div class="about-content">
-            <h2>Über mich</h2>
-            <p class="about-lead">
+            <h2 data-i18n="about.heading">Über mich</h2>
+            <p class="about-lead" data-i18n="about.lead">
               Mein Weg in die Softwareentwicklung begann nicht im Hörsaal,
               sondern am eigenen Rechner: Zeile für Zeile Code schreiben, Dinge
               kaputt machen und wieder reparieren, bis sie funktionieren. Über
@@ -186,7 +187,7 @@
                     <circle cx="12" cy="9.5" r="2.5" />
                   </svg>
                 </span>
-                <p>
+                <p data-i18n="about.point1">
                   Ich bin offen für Remote-Tätigkeiten in ganz Deutschland und
                   ebenso für einen Umzug, wenn Aufgabe und Team passen. Klare,
                   direkte Kommunikation ist mir dabei wichtiger als ein fester
@@ -207,7 +208,7 @@
                     />
                   </svg>
                 </span>
-                <p>
+                <p data-i18n="about.point2">
                   Neue Frameworks und Tools schrecken mich nicht ab - im
                   Gegenteil: Stoße ich beim Bauen eines Projekts an eine Grenze,
                   ist das für mich der Startpunkt, mir eine neue Technologie
@@ -230,7 +231,7 @@
                     />
                   </svg>
                 </span>
-                <p>
+                <p data-i18n="about.point3">
                   An einem Bug arbeite ich mich lieber einmal gründlich durch,
                   als ihn mit einem schnellen Hack zu übertünchen. Bevor ich
                   Code schreibe, versuche ich das eigentliche Problem zu
@@ -340,11 +341,11 @@
 
           <div class="skills-info">
             <div class="skills-heading">
-              <h2>Meine Skills</h2>
+              <h2 data-i18n="skills.heading">Meine Skills</h2>
               <span class="skills-line"></span>
             </div>
 
-            <p class="skills-desc">
+            <p class="skills-desc" data-i18n="skills.desc1">
               Die Icons oben zeigen die Technologien, mit denen ich in meinen
               Projekten regelmäßig arbeite - von HTML, CSS und JavaScript über
               TypeScript und Angular bis hin zu Supabase als Backend für
@@ -353,18 +354,18 @@
               mich dazu.
             </p>
 
-            <h3 class="skills-cta-title">
+            <h3 class="skills-cta-title" data-i18n-html="skills.ctaTitle">
               Auf der Suche nach
               <span class="highlight">einer weiteren Fähigkeit</span>?
             </h3>
 
-            <p class="skills-desc">
+            <p class="skills-desc" data-i18n="skills.desc2">
               Fehlt hier eine Technologie, die Sie suchen? Sprechen Sie mich
               gerne an - jedes der oben gezeigten Werkzeuge habe ich mir selbst
               erarbeitet, und mit dem nächsten tue ich mir genauso wenig schwer.
             </p>
 
-            <a class="btn-primary skills-btn" href="#contact"
+            <a class="btn-primary skills-btn" href="#contact" data-i18n="skills.btn"
               >Kontaktieren Sie mich</a
             >
           </div>
@@ -376,11 +377,11 @@
 
         <div class="container portfolio-header">
           <span class="portfolio-line-left"></span>
-          <h2>Portfolio</h2>
+          <h2 data-i18n="portfolio.heading">Portfolio</h2>
           <span class="portfolio-line"></span>
         </div>
 
-        <p class="portfolio-intro container">
+        <p class="portfolio-intro container" data-i18n="portfolio.intro">
           Entdecken Sie hier eine Auswahl meiner Projekte - interagieren Sie
           damit, um meine Fähigkeiten in Aktion zu sehen.
         </p>
@@ -404,7 +405,7 @@
             <div class="box portfolio-text">
               <h3>Join</h3>
               <p class="portfolio-stack">JavaScript | HTML | CSS | Firebase</p>
-              <p class="portfolio-desc">
+              <p class="portfolio-desc" data-i18n="portfolio.join.desc">
                 Ein Task-Manager nach dem Kanban-Prinzip. Aufgaben lassen sich
                 per Drag-and-Drop erstellen und organisieren, Nutzern zuweisen
                 und Kategorien zuordnen.
@@ -415,6 +416,7 @@
                   href="https://join.justinkamionka.de"
                   target="_blank"
                   rel="noopener"
+                  data-i18n="portfolio.liveTest"
                   >Live-Test</a
                 >
                 <a
@@ -446,7 +448,7 @@
             <div class="box portfolio-text">
               <h3>El Pollo Loco</h3>
               <p class="portfolio-stack">JavaScript | HTML | CSS</p>
-              <p class="portfolio-desc">
+              <p class="portfolio-desc" data-i18n="portfolio.pollo.desc">
                 Ein Jump-and-Run-Spiel nach objektorientiertem Ansatz. Sammle
                 Münzen und wirf Flaschen, um dich gegen die Gegner in der Wüste
                 zu behaupten.
@@ -457,6 +459,7 @@
                   href="https://polloloco.justinkamionka.de/"
                   target="_blank"
                   rel="noopener"
+                  data-i18n="portfolio.liveTest"
                   >Live-Test</a
                 >
                 <a
@@ -488,7 +491,7 @@
             <div class="box portfolio-text">
               <h3>Pokédex</h3>
               <p class="portfolio-stack">JavaScript | HTML | CSS | API</p>
-              <p class="portfolio-desc">
+              <p class="portfolio-desc" data-i18n="portfolio.pokedex.desc">
                 Basierend auf der PokéAPI - eine einfache Bibliothek, die
                 Pokémon-Informationen bereitstellt und katalogisiert.
               </p>
@@ -498,6 +501,7 @@
                   href="https://pokedex.justinkamionka.de/"
                   target="_blank"
                   rel="noopener"
+                  data-i18n="portfolio.liveTest"
                   >Live-Test</a
                 >
                 <a
@@ -559,6 +563,7 @@
               class="testimonial-arrow"
               id="testimonialPrev"
               aria-label="Vorherige Bewertung"
+              data-i18n-aria="testimonials.prevAria"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -592,6 +597,7 @@
               class="testimonial-arrow"
               id="testimonialNext"
               aria-label="Nächste Bewertung"
+              data-i18n-aria="testimonials.nextAria"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -611,19 +617,19 @@
 
         <div class="container contact-header">
           <span class="contact-line"></span>
-          <h2>Kontakt</h2>
+          <h2 data-i18n="contact.heading">Kontakt</h2>
         </div>
 
         <div class="container contact-inner">
           <div class="contact-text">
-            <h3>Sie haben ein Problem zu lösen?</h3>
-            <p>
+            <h3 data-i18n="contact.problemTitle">Sie haben ein Problem zu lösen?</h3>
+            <p data-i18n="contact.problemText">
               Ob es um eine neue Website, die Weiterentwicklung eines
               bestehenden Frontends oder ein Bugfixing-Projekt geht: Schreiben
               Sie mir kurz, worum es geht, und ich melde mich zeitnah mit einer
               ehrlichen Einschätzung zurück, ob und wie ich weiterhelfen kann.
             </p>
-            <p class="contact-cta">
+            <p class="contact-cta" data-i18n-html="contact.cta">
               Suchen Sie einen Frontend-Entwickler?
               <strong>Kontaktieren Sie mich!</strong>
             </p>
@@ -640,8 +646,14 @@
             />
 
             <label class="contact-field" data-field="name">
-              <span class="sr-only">Ihr Name</span>
-              <input type="text" name="name" placeholder="Ihr Name" required />
+              <span class="sr-only" data-i18n="contact.srName">Ihr Name</span>
+              <input
+                type="text"
+                name="name"
+                placeholder="Ihr Name"
+                data-i18n-placeholder="contact.namePlaceholder"
+                required
+              />
               <svg
                 class="contact-field-icon"
                 viewBox="0 0 24 24"
@@ -656,11 +668,12 @@
             </label>
 
             <label class="contact-field" data-field="email">
-              <span class="sr-only">Ihre E-Mail</span>
+              <span class="sr-only" data-i18n="contact.srEmail">Ihre E-Mail</span>
               <input
                 type="email"
                 name="email"
                 placeholder="Ihre E-Mail"
+                data-i18n-placeholder="contact.emailPlaceholder"
                 required
               />
               <svg
@@ -680,10 +693,11 @@
               class="contact-field contact-field--textarea"
               data-field="message"
             >
-              <span class="sr-only">Ihre Nachricht</span>
+              <span class="sr-only" data-i18n="contact.srMessage">Ihre Nachricht</span>
               <textarea
                 name="message"
                 placeholder="Ihre Nachricht"
+                data-i18n-placeholder="contact.messagePlaceholder"
                 required
               ></textarea>
               <svg
@@ -706,7 +720,7 @@
                 id="contactPrivacy"
                 required
               />
-              <span>
+              <span data-i18n-html="contact.privacyText">
                 Ich habe die
                 <a href="./datenschutz.html" target="_blank" rel="noopener"
                   >Datenschutzerklärung</a
@@ -720,6 +734,7 @@
               class="btn-primary contact-submit"
               type="submit"
               id="contactSubmit"
+              data-i18n="contact.submitBtn"
               disabled
             >
               Nachricht senden :)
@@ -738,6 +753,7 @@
           class="scroll-top"
           id="scrollTopBtn"
           aria-label="Nach oben scrollen"
+          data-i18n-aria="contact.scrollTopAria"
         >
           <svg
             viewBox="0 0 24 24"
@@ -758,10 +774,10 @@
             >Just<span class="logo-i">i</span
             ><span class="logo-accent">n</span></a
           >
-          <a href="./impressum.html">Impressum</a>
+          <a href="./impressum.html" data-i18n="footer.impressum">Impressum</a>
         </div>
         <div class="footer-content">
-          <p>&copy; 2026 Justin Kamionka</p>
+          <p data-i18n="footer.copyright">&copy; 2026 Justin Kamionka</p>
         </div>
         <div class="footer-links">
           <a

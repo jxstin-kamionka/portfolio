@@ -55,20 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-const testimonials = [
-  {
-    text: "Fügen Sie hier ein Zitat eines ehemaligen Kollegen oder Teampartners ein. Was hat diese Person an der Zusammenarbeit mit Ihnen besonders geschätzt?",
-    author: "Vorname Nachname - Team-Partner",
-  },
-  {
-    text: "Ergänzen Sie eine Rückmeldung Ihres Dozenten oder Mentors zu Ihrer Entwicklung während der Ausbildung.",
-    author: "Vorname Nachname - Dozent:in",
-  },
-  {
-    text: "Nutzen Sie diesen Platz für das Feedback eines Kunden oder einer Kundin zu einem abgeschlossenen Projekt.",
-    author: "Vorname Nachname - Kunde",
-  },
-];
+function getTestimonials() {
+  const t = window.i18n ? window.i18n.t : () => "";
+  return [0, 1, 2].map((index) => ({
+    text: t(`testimonials.${index}.text`),
+    author: t(`testimonials.${index}.author`),
+  }));
+}
 
 const testimonialText = document.getElementById("testimonialText");
 const testimonialAuthor = document.getElementById("testimonialAuthor");
@@ -79,6 +72,7 @@ const testimonialNext = document.getElementById("testimonialNext");
 let currentTestimonial = 0;
 
 function showTestimonial(index) {
+  const testimonials = getTestimonials();
   currentTestimonial = (index + testimonials.length) % testimonials.length;
   const testimonial = testimonials[currentTestimonial];
 
@@ -103,6 +97,10 @@ if (testimonialText) {
       showTestimonial(Number(dot.dataset.index)),
     );
   });
+
+  document.addEventListener("languagechange", () =>
+    showTestimonial(currentTestimonial),
+  );
 }
 
 const contactForm = document.getElementById("contactForm");
@@ -112,17 +110,21 @@ const contactFeedback = document.getElementById("contactFeedback");
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+function tt(key) {
+  return window.i18n ? window.i18n.t(key) : "";
+}
+
 const contactValidators = {
   name: (value) =>
-    value.trim() === "" ? "Bitte geben Sie Ihren Namen ein." : "",
+    value.trim() === "" ? tt("contact.validation.nameRequired") : "",
   email: (value) => {
-    if (value.trim() === "") return "Bitte geben Sie Ihre E-Mail-Adresse ein.";
+    if (value.trim() === "") return tt("contact.validation.emailRequired");
     return emailPattern.test(value)
       ? ""
-      : "Bitte geben Sie eine gültige E-Mail-Adresse ein.";
+      : tt("contact.validation.emailInvalid");
   },
   message: (value) =>
-    value.trim() === "" ? "Bitte geben Sie eine Nachricht ein." : "",
+    value.trim() === "" ? tt("contact.validation.messageRequired") : "",
 };
 
 function setFieldError(field, message) {
@@ -172,7 +174,7 @@ if (contactForm) {
 
     const submitLabel = contactSubmit.textContent;
     contactSubmit.disabled = true;
-    contactSubmit.textContent = "Wird gesendet...";
+    contactSubmit.textContent = tt("contact.sending");
     contactFeedback.textContent = "";
     contactFeedback.classList.remove("is-success", "is-error");
 
@@ -192,8 +194,7 @@ if (contactForm) {
         contactForm.reset();
       }
     } catch (error) {
-      contactFeedback.textContent =
-        "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.";
+      contactFeedback.textContent = tt("contact.genericError");
       contactFeedback.classList.add("is-error");
     } finally {
       contactSubmit.textContent = submitLabel;
