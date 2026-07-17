@@ -1,0 +1,12 @@
+/* Der Ausgangszustand des Elements vor der Animation */
+.box {
+  opacity: 0;
+  transform: opacity(0) translateY(20px); /* Startet leicht nach unten verschoben */
+  transition: all 0.3s ease-out; /* Sorgt für ein sanftes Einblenden */
+}
+
+/* Die Klasse, die später per JavaScript hinzugefügt wird */
+.box.sichtbar {
+  opacity: 1;
+  transform: translateY(0);
+}

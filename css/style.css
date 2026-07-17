@@ -146,10 +146,12 @@ button {
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: calc(100dvh - 214px);
+  width: 100vw;
   overflow: hidden;
   background: var(--color-bg-dark);
   isolation: isolate;
+  box-shadow: 0px 10px 18px rgba(16, 20, 42, 0.8);
 }
 
 .hero::after {
@@ -191,7 +193,7 @@ button {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 32px;
-  min-height: 100vh;
+  height: calc(100dvh - 120px);
   display: flex;
   align-items: center;
   gap: 40px;
@@ -319,8 +321,9 @@ button {
 /* ---------- Social bar ---------- */
 .social-bar {
   position: relative;
-  background: var(--color-bg-dark);
+  background: var(--color-bg-light);
   padding: 28px 0;
+  width: 100vw;
 }
 
 .social-bar-inner {
@@ -381,8 +384,9 @@ button {
 
 /* ---------- About ---------- */
 .about {
-  background: var(--color-bg-dark);
+  background: var(--color-bg-light);
   padding: 80px 0 100px;
+  width: 100vw;
 }
 
 .about-inner {
@@ -453,7 +457,7 @@ button {
 
 .about-photo-glow {
   position: absolute;
-  inset: -25% -35%;
+  inset: 3% -35%;
   background: var(--color-purple);
   filter: blur(100px);
   opacity: 0.5;
@@ -488,8 +492,9 @@ button {
 /* ---------- Skills ---------- */
 .skills {
   position: relative;
-  background: var(--color-bg-dark);
+  background: var(--color-bg-light);
   padding: 100px 0;
+  width: 100vw;
   overflow: hidden;
 }
 
