@@ -76,14 +76,6 @@ button {
   gap: 24px;
 }
 
-.nav-left {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 64px;
-  width: 100%;
-}
-
 .logo {
   font-size: 2rem;
   font-weight: 700;
@@ -96,6 +88,12 @@ button {
 
 .logo-accent {
   color: var(--color-green);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
 .nav-links {
@@ -119,8 +117,46 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-left: 20px;
   height: 100%;
+}
+
+.nav-toggle {
+  position: relative;
+  z-index: 30;
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  background: transparent;
+  color: var(--color-white);
+  transition: color 0.2s ease;
+}
+
+.nav-toggle:hover {
+  color: var(--color-green);
+}
+
+.nav-toggle-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.nav-toggle-icon--close {
+  display: none;
+}
+
+.nav-toggle.is-open .nav-toggle-icon--open {
+  display: none;
+}
+
+.nav-toggle.is-open .nav-toggle-icon--close {
+  display: block;
+}
+
+body.nav-open-lock {
+  overflow: hidden;
 }
 
 .lang-btn {
@@ -147,7 +183,7 @@ button {
 .hero {
   position: relative;
   height: calc(100dvh - 214px);
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   background: var(--color-bg-dark);
   isolation: isolate;
@@ -322,7 +358,7 @@ button {
   position: relative;
   background: var(--color-bg-light);
   padding: 28px 0;
-  width: 100vw;
+  width: 100%;
 }
 
 .social-bar-inner {
@@ -385,7 +421,7 @@ button {
 .about {
   background: var(--color-bg-light);
   padding: 80px 0 100px;
-  width: 100vw;
+  width: 100%;
 }
 
 .about-inner {
@@ -494,7 +530,7 @@ button {
   position: relative;
   background: var(--color-bg-light);
   padding: 100px 0;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -620,7 +656,7 @@ button {
   position: relative;
   background: var(--color-bg-light);
   padding: 100px 0;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -697,14 +733,29 @@ button {
 }
 
 .portfolio-image {
+  position: relative;
   flex: 0 0 auto;
   width: min(38vw, 480px);
 }
 
-.portfolio-image img {
+.portfolio-laptop {
   width: 100%;
   height: auto;
   display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.portfolio-screenshot {
+  position: absolute;
+  left: 25.3%;
+  top: 27.8%;
+  width: 49.2%;
+  height: 28.9%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 3px;
 }
 
 .portfolio-text {
@@ -733,6 +784,7 @@ button {
 
 .portfolio-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 20px;
 }
@@ -742,7 +794,7 @@ button {
   position: relative;
   background: var(--color-bg-light);
   padding: 100px 0 120px;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -790,6 +842,7 @@ button {
 .testimonial-divider {
   display: block;
   width: 260px;
+  max-width: 100%;
   height: 2px;
   background: var(--color-purple);
   margin-bottom: 16px;
@@ -902,7 +955,7 @@ button {
   position: relative;
   background: var(--color-bg-light);
   padding: 100px 0 140px;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -1145,7 +1198,7 @@ button {
 
 .green-line {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 4px;
   background: var(--color-green);
   z-index: 1;
@@ -1155,7 +1208,7 @@ footer {
   position: relative;
   background: var(--color-bg-light);
   padding: 32px;
-  width: 100vw;
+  width: 100%;
   height: 200px;
   display: flex;
   justify-content: space-between;

@@ -7,6 +7,29 @@ langButtons.forEach((button) => {
   });
 });
 
+const navToggle = document.getElementById("navToggle");
+const navMenu = document.getElementById("navMenu");
+
+if (navToggle && navMenu) {
+  const closeNavMenu = () => {
+    navToggle.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+    navMenu.classList.remove("is-open");
+    document.body.classList.remove("nav-open-lock");
+  };
+
+  navToggle.addEventListener("click", () => {
+    const isOpen = navMenu.classList.toggle("is-open");
+    navToggle.classList.toggle("is-open", isOpen);
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    document.body.classList.toggle("nav-open-lock", isOpen);
+  });
+
+  navMenu.querySelectorAll("a, .lang-btn").forEach((link) => {
+    link.addEventListener("click", closeNavMenu);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const alleBoxen = document.querySelectorAll(".box");
 
