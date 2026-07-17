@@ -593,6 +593,303 @@ button {
   margin: 24px auto 0;
 }
 
+/* ---------- Buttons ---------- */
+.btn-secondary {
+  display: inline-block;
+  padding: 14px 32px;
+  background: transparent;
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1.5px solid var(--color-green);
+  border-radius: 10px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--color-green);
+  color: #10142a;
+  transform: translateY(-2px);
+}
+
+/* ---------- Portfolio ---------- */
+.portfolio {
+  position: relative;
+  background: var(--color-bg-light);
+  padding: 100px 0;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.portfolio-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.55;
+  z-index: 0;
+}
+
+.portfolio-glow--green {
+  width: 380px;
+  height: 380px;
+  left: -10%;
+  top: 0%;
+  background: var(--color-green);
+}
+
+.portfolio-glow--purple {
+  width: 420px;
+  height: 420px;
+  right: -12%;
+  bottom: 10%;
+  background: var(--color-purple);
+}
+
+.portfolio-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.portfolio-header h2 {
+  flex: 0 0 auto;
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.portfolio-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-purple));
+}
+
+.portfolio-line:last-child {
+  background: linear-gradient(90deg, var(--color-purple), transparent);
+}
+
+.portfolio-intro {
+  position: relative;
+  z-index: 1;
+  color: var(--color-muted);
+  max-width: 720px;
+  margin-bottom: 80px;
+}
+
+.portfolio-list {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+}
+
+.portfolio-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.portfolio-item--reverse {
+  flex-direction: row-reverse;
+}
+
+.portfolio-image {
+  flex: 0 0 auto;
+  width: min(38vw, 480px);
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.portfolio-text {
+  flex: 1 1 420px;
+  max-width: 520px;
+}
+
+.portfolio-text h3 {
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-weight: 800;
+  color: var(--color-purple);
+  margin-bottom: 12px;
+}
+
+.portfolio-stack {
+  color: var(--color-green);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.portfolio-desc {
+  color: var(--color-muted);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.portfolio-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ---------- Testimonials ---------- */
+.testimonials {
+  position: relative;
+  background: var(--color-bg-light);
+  padding: 100px 0 120px;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.testimonials-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+.testimonial-card-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+}
+
+.testimonial-quote {
+  position: absolute;
+  top: -34px;
+  left: 24px;
+  width: 56px;
+  height: 56px;
+  color: var(--color-purple);
+  z-index: 2;
+}
+
+.testimonial-card {
+  position: relative;
+  flex: 1 1 640px;
+  max-width: 760px;
+  padding: 48px 56px;
+  border: 2px solid var(--color-green);
+  border-radius: 20px;
+}
+
+.testimonial-quote-text {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--color-white);
+  margin-bottom: 28px;
+}
+
+.testimonial-divider {
+  display: block;
+  width: 260px;
+  height: 2px;
+  background: var(--color-purple);
+  margin-bottom: 16px;
+}
+
+.testimonial-author {
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+.testimonial-photo {
+  position: relative;
+  flex: 0 0 auto;
+  width: min(20vw, 220px);
+}
+
+.testimonial-photo-circle {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 3px solid var(--color-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  background: var(--color-bg-light);
+}
+
+.testimonial-photo-circle svg {
+  width: 40%;
+  height: 40%;
+}
+
+.testimonial-photo-line {
+  position: absolute;
+  top: 50%;
+  right: -80px;
+  width: 80px;
+  height: 2px;
+  background: var(--color-green);
+  z-index: 1;
+}
+
+.testimonial-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.testimonial-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-green);
+  background: transparent;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.testimonial-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.testimonial-arrow:hover {
+  background: var(--color-green);
+  color: #10142a;
+}
+
+.testimonial-dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.testimonial-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid var(--color-purple);
+  padding: 0;
+  transition: background 0.2s ease;
+}
+
+.testimonial-dot.active {
+  background: var(--color-green);
+  border-color: var(--color-green);
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .nav-links {
@@ -688,6 +985,84 @@ button {
   .skills-heading h2 {
     white-space: normal;
   }
+
+  .portfolio-header {
+    gap: 16px;
+  }
+
+  .portfolio-item,
+  .portfolio-item--reverse {
+    flex-direction: column;
+  }
+
+  .portfolio-image {
+    width: min(80vw, 420px);
+  }
+
+  .portfolio-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .portfolio-actions {
+    justify-content: center;
+  }
+
+  .testimonial-card-wrap {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .testimonial-card {
+    max-width: 100%;
+    padding: 40px 28px;
+  }
+
+  .testimonial-photo {
+    width: min(40vw, 180px);
+  }
+
+  .testimonial-photo-line {
+    display: none;
+  }
+}
+
+.green-line {
+  position: relative;
+  width: 100vw;
+  height: 4px;
+  background: var(--color-green);
+  z-index: 1;
+}
+
+footer {
+  position: relative;
+  background: var(--color-bg-light);
+  padding: 32px;
+  width: 100vw;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-links img {
+  width: 32px;
+  height: 32px;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 520px) {

@@ -31,3 +31,53 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(box);
   });
 });
+
+const testimonials = [
+  {
+    text: "Fügen Sie hier ein Zitat eines ehemaligen Kollegen oder Teampartners ein. Was hat diese Person an der Zusammenarbeit mit Ihnen besonders geschätzt?",
+    author: "Vorname Nachname - Team-Partner",
+  },
+  {
+    text: "Ergänzen Sie eine Rückmeldung Ihres Dozenten oder Mentors zu Ihrer Entwicklung während der Ausbildung.",
+    author: "Vorname Nachname - Dozent:in",
+  },
+  {
+    text: "Nutzen Sie diesen Platz für das Feedback eines Kunden oder einer Kundin zu einem abgeschlossenen Projekt.",
+    author: "Vorname Nachname - Kunde",
+  },
+];
+
+const testimonialText = document.getElementById("testimonialText");
+const testimonialAuthor = document.getElementById("testimonialAuthor");
+const testimonialDots = document.querySelectorAll(".testimonial-dot");
+const testimonialPrev = document.getElementById("testimonialPrev");
+const testimonialNext = document.getElementById("testimonialNext");
+
+let currentTestimonial = 0;
+
+function showTestimonial(index) {
+  currentTestimonial = (index + testimonials.length) % testimonials.length;
+  const testimonial = testimonials[currentTestimonial];
+
+  testimonialText.textContent = testimonial.text;
+  testimonialAuthor.textContent = testimonial.author;
+
+  testimonialDots.forEach((dot, dotIndex) => {
+    dot.classList.toggle("active", dotIndex === currentTestimonial);
+  });
+}
+
+if (testimonialText) {
+  testimonialPrev.addEventListener("click", () =>
+    showTestimonial(currentTestimonial - 1),
+  );
+  testimonialNext.addEventListener("click", () =>
+    showTestimonial(currentTestimonial + 1),
+  );
+
+  testimonialDots.forEach((dot) => {
+    dot.addEventListener("click", () =>
+      showTestimonial(Number(dot.dataset.index)),
+    );
+  });
+}
