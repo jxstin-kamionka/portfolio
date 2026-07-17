@@ -154,6 +154,14 @@ if (contactForm) {
     });
   });
 
+  document.addEventListener("languagechange", () => {
+    contactFields.forEach((field) => {
+      if (field.classList.contains("has-error")) {
+        validateContactField(field);
+      }
+    });
+  });
+
   contactPrivacy.addEventListener("change", () => {
     contactSubmit.disabled = !contactPrivacy.checked;
   });

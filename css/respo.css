@@ -90,10 +90,6 @@
     min-height: calc(100dvh - 214px);
   }
 
-  .hero::after {
-    z-index: 0;
-  }
-
   .hero-inner {
     height: calc(100dvh - 214px);
     flex-direction: column;
@@ -291,6 +287,22 @@
 
   .testimonial-photo {
     width: min(45vw, 150px);
+  }
+
+  .hero-inner {
+    padding: 0 5px;
+  }
+
+  .hero-iam {
+    font-size: 0.7rem;
+  }
+
+  .hero-split h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero-split p {
+    font-size: 1rem;
   }
 
   .contact-field input,
