@@ -46,7 +46,7 @@ button {
   --color-purple: #8b6ff0;
   --color-white: #ffffff;
   --color-muted: #c6cbe0;
-  --container-width: 1300px;
+  --container-width: 1440px;
 }
 
 .container {
@@ -183,11 +183,20 @@ body.nav-open-lock {
 .hero {
   position: relative;
   height: calc(100dvh - 214px);
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
   background: var(--color-bg-dark);
   isolation: isolate;
   box-shadow: 0px 10px 18px rgba(16, 20, 42, 0.8);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-bg-light);
+  clip-path: url(#heroCurve);
+  z-index: 0;
 }
 
 .hero-glow {
@@ -232,18 +241,6 @@ body.nav-open-lock {
   align-self: flex-end;
   width: min(38vw, 520px);
   z-index: 0;
-}
-
-.hero-image::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 15%;
-  right: -60%;
-  top: 55%;
-  bottom: -25%;
-  background: var(--color-bg-light);
-  clip-path: url(#heroCurve);
 }
 
 .hero-image img {
@@ -363,7 +360,7 @@ body.nav-open-lock {
   position: relative;
   background: var(--color-bg-light);
   padding: 28px 0;
-  width: 100%;
+  width: 100vw;
 }
 
 .social-bar-inner {
@@ -427,7 +424,7 @@ body.nav-open-lock {
   position: relative;
   background: var(--color-bg-light);
   padding: 80px 0 100px;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
 }
 
@@ -537,7 +534,7 @@ body.nav-open-lock {
   position: relative;
   background: var(--color-bg-light);
   padding: 100px 0;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
 }
 
@@ -663,7 +660,7 @@ body.nav-open-lock {
   position: relative;
   background: var(--color-bg-light);
   padding: 100px 0;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
 }
 
@@ -801,7 +798,7 @@ body.nav-open-lock {
   position: relative;
   background: var(--color-bg-light);
   padding: 100px 0 120px;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
 }
 
@@ -962,7 +959,7 @@ body.nav-open-lock {
   position: relative;
   background: var(--color-bg-light);
   padding: 100px 0 140px;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
 }
 
@@ -1205,7 +1202,7 @@ body.nav-open-lock {
 
 .green-line {
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 4px;
   background: var(--color-green);
   z-index: 1;
@@ -1215,7 +1212,7 @@ footer {
   position: relative;
   background: var(--color-bg-light);
   padding: 32px;
-  width: 100%;
+  width: 100vw;
   height: 200px;
   display: flex;
   justify-content: space-between;

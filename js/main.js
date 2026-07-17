@@ -193,12 +193,12 @@ if (contactForm) {
       });
       const result = await response.json();
 
-      contactFeedback.textContent = result.message;
-      contactFeedback.classList.add(
-        result.success ? "is-success" : "is-error",
-      );
+      contactFeedback.textContent = result.ok
+        ? tt("contact.successMessage")
+        : result.error || tt("contact.genericError");
+      contactFeedback.classList.add(result.ok ? "is-success" : "is-error");
 
-      if (result.success) {
+      if (result.ok) {
         contactForm.reset();
       }
     } catch (error) {

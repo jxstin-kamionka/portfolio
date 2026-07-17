@@ -68,6 +68,8 @@ const translations = {
       'Ich habe die <a href="./datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.',
     "contact.submitBtn": "Nachricht senden :)",
     "contact.sending": "Wird gesendet...",
+    "contact.successMessage":
+      "Danke für Ihre Nachricht! Ich melde mich zeitnah bei Ihnen.",
     "contact.genericError":
       "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.",
     "contact.scrollTopAria": "Nach oben scrollen",
