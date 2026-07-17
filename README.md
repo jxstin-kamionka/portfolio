@@ -27,7 +27,7 @@ Ich bin **Justin Kamionka** und interessiere mich für Webentwicklung, IT-Lösun
 Repository klonen:
 
 ```bash
-git clone https://github.com/DEIN-GITHUB-NAME/portfolio.git
+git clone https://github.com/jxstin-kamionka/portfolio.git
 ```
 
 In den Projektordner wechseln:
