@@ -87,7 +87,48 @@ const contactPrivacy = document.getElementById("contactPrivacy");
 const contactSubmit = document.getElementById("contactSubmit");
 const contactFeedback = document.getElementById("contactFeedback");
 
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const contactValidators = {
+  name: (value) =>
+    value.trim() === "" ? "Bitte geben Sie Ihren Namen ein." : "",
+  email: (value) => {
+    if (value.trim() === "") return "Bitte geben Sie Ihre E-Mail-Adresse ein.";
+    return emailPattern.test(value)
+      ? ""
+      : "Bitte geben Sie eine gültige E-Mail-Adresse ein.";
+  },
+  message: (value) =>
+    value.trim() === "" ? "Bitte geben Sie eine Nachricht ein." : "",
+};
+
+function setFieldError(field, message) {
+  const errorEl = field.querySelector(".contact-field-error");
+  field.classList.toggle("has-error", Boolean(message));
+  errorEl.textContent = message;
+}
+
+function validateContactField(field) {
+  const input = field.querySelector("input, textarea");
+  const validate = contactValidators[field.dataset.field];
+  const message = validate(input.value);
+  setFieldError(field, message);
+  return message === "";
+}
+
 if (contactForm) {
+  const contactFields = contactForm.querySelectorAll("[data-field]");
+
+  contactFields.forEach((field) => {
+    const input = field.querySelector("input, textarea");
+    input.addEventListener("blur", () => validateContactField(field));
+    input.addEventListener("input", () => {
+      if (field.classList.contains("has-error")) {
+        validateContactField(field);
+      }
+    });
+  });
+
   contactPrivacy.addEventListener("change", () => {
     contactSubmit.disabled = !contactPrivacy.checked;
   });
@@ -95,7 +136,14 @@ if (contactForm) {
   contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    if (!contactPrivacy.checked) {
+    let isValid = true;
+    contactFields.forEach((field) => {
+      if (!validateContactField(field)) {
+        isValid = false;
+      }
+    });
+
+    if (!isValid || !contactPrivacy.checked) {
       return;
     }
 

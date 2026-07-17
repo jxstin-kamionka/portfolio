@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/animation.css" />
+    <link rel="stylesheet" href="./css/respo.css" />
 
     <script src="./js/main.js" defer></script>
   </head>
@@ -90,7 +91,7 @@
         <div class="social-links">
           <a
             class="social-icon"
-            href="#"
+            href="https://github.com/jxstin-kamionka"
             target="_blank"
             rel="noopener"
             aria-label="GitHub"
@@ -108,7 +109,7 @@
 
           <a
             class="social-icon"
-            href="#"
+            href="https://www.linkedin.com/in/justin-kamionka-54734835a/"
             target="_blank"
             rel="noopener"
             aria-label="LinkedIn"
@@ -341,16 +342,18 @@
 
           <div class="box portfolio-text">
             <h3>Join</h3>
-            <p class="portfolio-stack">
-              JavaScript | HTML | CSS | Firebase
-            </p>
+            <p class="portfolio-stack">JavaScript | HTML | CSS | Firebase</p>
             <p class="portfolio-desc">
               Ein Task-Manager nach dem Kanban-Prinzip. Aufgaben lassen sich per
               Drag-and-Drop erstellen und organisieren, Nutzern zuweisen und
               Kategorien zuordnen.
             </p>
             <div class="portfolio-actions">
-              <a class="btn-primary" href="#" target="_blank" rel="noopener"
+              <a
+                class="btn-primary"
+                href="https://join.justinkamionka.de"
+                target="_blank"
+                rel="noopener"
                 >Live-Test</a
               >
               <a class="btn-secondary" href="#" target="_blank" rel="noopener"
@@ -377,7 +380,11 @@
               behaupten.
             </p>
             <div class="portfolio-actions">
-              <a class="btn-primary" href="#" target="_blank" rel="noopener"
+              <a
+                class="btn-primary"
+                href="https://polloloco.justinkamionka.de/"
+                target="_blank"
+                rel="noopener"
                 >Live-Test</a
               >
               <a class="btn-secondary" href="#" target="_blank" rel="noopener"
@@ -400,35 +407,11 @@
               Pokémon-Informationen bereitstellt und katalogisiert.
             </p>
             <div class="portfolio-actions">
-              <a class="btn-primary" href="#" target="_blank" rel="noopener"
-                >Live-Test</a
-              >
-              <a class="btn-secondary" href="#" target="_blank" rel="noopener"
-                >Github</a
-              >
-            </div>
-          </div>
-        </div>
-
-        <div class="portfolio-item portfolio-item--reverse">
-          <div class="portfolio-image">
-            <img
-              src="./assets/img/FacilityPlus.png"
-              alt="Facility Plus Dashboard"
-            />
-          </div>
-
-          <div class="box portfolio-text">
-            <h3>Facility Plus</h3>
-            <p class="portfolio-stack">
-              HTML | JavaScript | Firebase | Node.js
-            </p>
-            <p class="portfolio-desc">
-              Ein Dashboard zur Verwaltung von Aufgaben, Lagerbestand,
-              Bestellungen und Zeiterfassung für Fitnessstudios.
-            </p>
-            <div class="portfolio-actions">
-              <a class="btn-primary" href="#" target="_blank" rel="noopener"
+              <a
+                class="btn-primary"
+                href="https://pokedex.justinkamionka.de/"
+                target="_blank"
+                rel="noopener"
                 >Live-Test</a
               >
               <a class="btn-secondary" href="#" target="_blank" rel="noopener"
@@ -545,9 +528,9 @@
         <div class="contact-text">
           <h3>Sie haben ein Problem zu lösen?</h3>
           <p>
-            Ermutigen Sie Besucher, Sie zu kontaktieren und beschreiben Sie,
-            für welche Rolle Sie sich interessieren. Zeigen Sie, dass Sie
-            durch Ihre Arbeit einen Mehrwert für deren Projekte schaffen.
+            Ermutigen Sie Besucher, Sie zu kontaktieren und beschreiben Sie, für
+            welche Rolle Sie sich interessieren. Zeigen Sie, dass Sie durch Ihre
+            Arbeit einen Mehrwert für deren Projekte schaffen.
           </p>
           <p class="contact-cta">
             Suchen Sie einen Frontend-Entwickler?
@@ -565,12 +548,23 @@
             aria-hidden="true"
           />
 
-          <label class="contact-field">
+          <label class="contact-field" data-field="name">
             <span class="sr-only">Ihr Name</span>
             <input type="text" name="name" placeholder="Ihr Name" required />
+            <svg
+              class="contact-field-icon"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <rect x="11" y="6" width="2" height="8" fill="#10142a" />
+              <rect x="11" y="16" width="2" height="2" fill="#10142a" />
+            </svg>
+            <span class="contact-field-error"></span>
           </label>
 
-          <label class="contact-field">
+          <label class="contact-field" data-field="email">
             <span class="sr-only">Ihre E-Mail</span>
             <input
               type="email"
@@ -578,26 +572,56 @@
               placeholder="Ihre E-Mail"
               required
             />
+            <svg
+              class="contact-field-icon"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <rect x="11" y="6" width="2" height="8" fill="#10142a" />
+              <rect x="11" y="16" width="2" height="2" fill="#10142a" />
+            </svg>
+            <span class="contact-field-error"></span>
           </label>
 
-          <label class="contact-field contact-field--textarea">
+          <label
+            class="contact-field contact-field--textarea"
+            data-field="message"
+          >
             <span class="sr-only">Ihre Nachricht</span>
             <textarea
               name="message"
               placeholder="Ihre Nachricht"
               required
             ></textarea>
+            <svg
+              class="contact-field-icon"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <rect x="11" y="6" width="2" height="8" fill="#10142a" />
+              <rect x="11" y="16" width="2" height="2" fill="#10142a" />
+            </svg>
+            <span class="contact-field-error"></span>
           </label>
 
           <label class="contact-checkbox">
-            <input type="checkbox" name="privacy" id="contactPrivacy" required />
+            <input
+              type="checkbox"
+              name="privacy"
+              id="contactPrivacy"
+              required
+            />
             <span>
               Ich habe die
               <a href="./datenschutz.html" target="_blank" rel="noopener"
                 >Datenschutzerklärung</a
               >
-              gelesen und stimme der Verarbeitung meiner Daten wie
-              beschrieben zu.
+              gelesen und stimme der Verarbeitung meiner Daten wie beschrieben
+              zu.
             </span>
           </label>
 
@@ -619,7 +643,11 @@
         </form>
       </div>
 
-      <button class="scroll-top" id="scrollTopBtn" aria-label="Nach oben scrollen">
+      <button
+        class="scroll-top"
+        id="scrollTopBtn"
+        aria-label="Nach oben scrollen"
+      >
         <svg
           viewBox="0 0 24 24"
           fill="none"
@@ -645,10 +673,10 @@
         <p>&copy; 2024 Justin Kamionka. Alle Rechte vorbehalten.</p>
       </div>
       <div class="footer-links">
-        <a class="social-icon" href="#home"
+        <a class="social-icon" href="https://github.com/jxstin-kamionka" target="_blank" rel="noopener noreferrer"
           ><img src="./assets/icons/GitHub.png" alt="GitHub"
         /></a>
-        <a class="social-icon" href="#home"
+        <a class="social-icon" href="https://www.linkedin.com/in/justin-kamionka-54734835a/" target="_blank" rel="noopener noreferrer "
           ><img src="./assets/icons/Linkedin button.png" alt="LinkedIn"
         /></a>
         <a class="social-icon" href="mailto:info@justinkamionka.de"

@@ -266,7 +266,6 @@ button {
   grid-row: 3;
   justify-self: center;
   display: inline-block;
-  margin-top: 28px;
   padding: 14px 32px;
   background: var(--color-green);
   color: #10142a;
@@ -634,14 +633,6 @@ button {
   z-index: 0;
 }
 
-.portfolio-glow--green {
-  width: 380px;
-  height: 380px;
-  left: -10%;
-  top: 0%;
-  background: var(--color-green);
-}
-
 .portfolio-glow--purple {
   width: 420px;
   height: 420px;
@@ -997,13 +988,17 @@ button {
   opacity: 0;
 }
 
+.contact-field {
+  position: relative;
+}
+
 .contact-field input,
 .contact-field textarea {
   width: 100%;
   background: transparent;
   border: 1.5px solid var(--color-purple);
   border-radius: 10px;
-  padding: 16px 20px;
+  padding: 16px 48px 16px 20px;
   color: var(--color-white);
   font-family: inherit;
   font-size: 1rem;
@@ -1024,6 +1019,33 @@ button {
 .contact-field--textarea textarea {
   min-height: 180px;
   resize: vertical;
+}
+
+.contact-field-icon {
+  display: none;
+  position: absolute;
+  top: 17px;
+  right: 16px;
+  width: 22px;
+  height: 22px;
+  color: #ff5c5c;
+}
+
+.contact-field-error {
+  display: none;
+  margin-top: 8px;
+  color: #ff5c5c;
+  font-size: 0.85rem;
+}
+
+.contact-field.has-error input,
+.contact-field.has-error textarea {
+  border-color: #ff5c5c;
+}
+
+.contact-field.has-error .contact-field-icon,
+.contact-field.has-error .contact-field-error {
+  display: block;
 }
 
 .contact-checkbox {
@@ -1122,173 +1144,6 @@ button {
   color: var(--color-green);
 }
 
-/* ---------- Responsive ---------- */
-@media (max-width: 900px) {
-  .nav-links {
-    display: none;
-  }
-
-  .hero-inner {
-    flex-direction: column;
-    justify-content: flex-end;
-    text-align: center;
-    padding-top: 140px;
-    gap: 24px;
-  }
-
-  .hero-image {
-    width: min(60vw, 320px);
-    align-self: center;
-  }
-
-  .hero-image img {
-    border-radius: 20px;
-  }
-
-  .hero-text {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    row-gap: 8px;
-  }
-
-  .hero-iam {
-    grid-column: 1;
-    grid-row: 1;
-    writing-mode: horizontal-tb;
-    transform: none;
-  }
-
-  .hero-text h1 {
-    grid-row: 2;
-    white-space: normal;
-  }
-
-  .hero-role {
-    grid-row: 3;
-  }
-
-  .btn-primary {
-    grid-row: 4;
-  }
-
-  .hero-scroll {
-    display: none;
-  }
-
-  .about-inner {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-
-  .about-points li {
-    text-align: left;
-  }
-
-  .skills-inner {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(3, auto);
-    justify-content: center;
-  }
-
-  .skill-item:nth-child(4n) {
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    padding-right: 48px;
-  }
-
-  .skill-item:nth-child(3n) {
-    border-right: none;
-    padding-right: 0;
-  }
-
-  .skills-info {
-    flex: none;
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .skills-heading {
-    justify-content: center;
-  }
-
-  .skills-heading h2 {
-    white-space: normal;
-  }
-
-  .portfolio-header {
-    gap: 16px;
-  }
-
-  .portfolio-item,
-  .portfolio-item--reverse {
-    flex-direction: column;
-  }
-
-  .portfolio-image {
-    width: min(80vw, 420px);
-  }
-
-  .portfolio-text {
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .portfolio-actions {
-    justify-content: center;
-  }
-
-  .testimonial-card-wrap {
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  .testimonial-card {
-    max-width: 100%;
-    padding: 40px 28px;
-  }
-
-  .testimonial-photo {
-    width: min(40vw, 180px);
-  }
-
-  .testimonial-photo-line {
-    display: none;
-  }
-
-  .contact-header {
-    gap: 20px;
-  }
-
-  .contact-header h2 {
-    white-space: normal;
-  }
-
-  .contact-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .contact-text {
-    max-width: 100%;
-  }
-
-  .contact-checkbox {
-    text-align: left;
-  }
-
-  .contact-submit {
-    margin: 0 auto;
-  }
-
-  .scroll-top {
-    right: 20px;
-    bottom: 20px;
-  }
-}
-
 .green-line {
   position: relative;
   width: 100vw;
@@ -1317,22 +1172,9 @@ footer {
 .footer-links img {
   width: 32px;
   height: 32px;
-  transition:
-    transform 0.2s ease,
-    filter 0.2s ease;
 }
 
 .footer-logo {
   display: flex;
   flex-direction: column;
-}
-
-@media (max-width: 520px) {
-  .navbar {
-    padding: 20px 0;
-  }
-
-  .container {
-    padding: 0 20px;
-  }
 }
