@@ -38,6 +38,7 @@
             <a href="#about">Über mich</a>
             <a href="#skills">Fähigkeiten</a>
             <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Kontakt</a>
           </nav>
         </div>
 
@@ -322,7 +323,7 @@
       <div class="portfolio-glow portfolio-glow--purple"></div>
 
       <div class="container portfolio-header">
-        <span class="portfolio-line"></span>
+        <span class="portfolio-line-left"></span>
         <h2>Portfolio</h2>
         <span class="portfolio-line"></span>
       </div>
@@ -341,7 +342,7 @@
           <div class="box portfolio-text">
             <h3>Join</h3>
             <p class="portfolio-stack">
-              Angular | TypeScript | HTML | CSS | Firebase
+              JavaScript | HTML | CSS | Firebase
             </p>
             <p class="portfolio-desc">
               Ein Task-Manager nach dem Kanban-Prinzip. Aufgaben lassen sich per
@@ -530,6 +531,104 @@
           </button>
         </div>
       </div>
+    </section>
+
+    <section class="contact box" id="contact">
+      <div class="contact-glow"></div>
+
+      <div class="container contact-header">
+        <span class="contact-line"></span>
+        <h2>Kontakt</h2>
+      </div>
+
+      <div class="container contact-inner">
+        <div class="contact-text">
+          <h3>Sie haben ein Problem zu lösen?</h3>
+          <p>
+            Ermutigen Sie Besucher, Sie zu kontaktieren und beschreiben Sie,
+            für welche Rolle Sie sich interessieren. Zeigen Sie, dass Sie
+            durch Ihre Arbeit einen Mehrwert für deren Projekte schaffen.
+          </p>
+          <p class="contact-cta">
+            Suchen Sie einen Frontend-Entwickler?
+            <strong>Kontaktieren Sie mich!</strong>
+          </p>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <input
+            type="text"
+            name="website"
+            class="contact-honeypot"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
+
+          <label class="contact-field">
+            <span class="sr-only">Ihr Name</span>
+            <input type="text" name="name" placeholder="Ihr Name" required />
+          </label>
+
+          <label class="contact-field">
+            <span class="sr-only">Ihre E-Mail</span>
+            <input
+              type="email"
+              name="email"
+              placeholder="Ihre E-Mail"
+              required
+            />
+          </label>
+
+          <label class="contact-field contact-field--textarea">
+            <span class="sr-only">Ihre Nachricht</span>
+            <textarea
+              name="message"
+              placeholder="Ihre Nachricht"
+              required
+            ></textarea>
+          </label>
+
+          <label class="contact-checkbox">
+            <input type="checkbox" name="privacy" id="contactPrivacy" required />
+            <span>
+              Ich habe die
+              <a href="./datenschutz.html" target="_blank" rel="noopener"
+                >Datenschutzerklärung</a
+              >
+              gelesen und stimme der Verarbeitung meiner Daten wie
+              beschrieben zu.
+            </span>
+          </label>
+
+          <button
+            class="btn-primary contact-submit"
+            type="submit"
+            id="contactSubmit"
+            disabled
+          >
+            Nachricht senden :)
+          </button>
+
+          <p
+            class="contact-feedback"
+            id="contactFeedback"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </form>
+      </div>
+
+      <button class="scroll-top" id="scrollTopBtn" aria-label="Nach oben scrollen">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <path d="M6 15l6-6 6 6" />
+        </svg>
+      </button>
     </section>
 
     <div class="green-line"></div>
