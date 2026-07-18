@@ -91,7 +91,7 @@
   }
 
   .hero {
-    height: auto;
+    height: calc(100dvh - 172px);
     min-height: 0;
   }
 
