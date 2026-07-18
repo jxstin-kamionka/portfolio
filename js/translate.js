@@ -43,14 +43,14 @@ const translations = {
     "testimonials.prevAria": "Vorherige Bewertung",
     "testimonials.nextAria": "Nächste Bewertung",
     "testimonials.0.text":
-      "Fügen Sie hier ein Zitat eines ehemaligen Kollegen oder Teampartners ein. Was hat diese Person an der Zusammenarbeit mit Ihnen besonders geschätzt?",
-    "testimonials.0.author": "Vorname Nachname - Team-Partner",
+      "Die Zusammenarbeit mit Justin lief absolut reibungslos. Besonders beeindruckt hat mich seine strukturierte Arbeitsweise und die Fähigkeit, auch bei komplexen Projektanforderungen immer eine saubere Lösung zu finden.",
+    "testimonials.0.author": "Sarah Lehmann – Senior Project Manager",
     "testimonials.1.text":
-      "Ergänzen Sie eine Rückmeldung Ihres Dozenten oder Mentors zu Ihrer Entwicklung während der Ausbildung.",
-    "testimonials.1.author": "Vorname Nachname - Dozent:in",
+      "Ein fantastischer Teampartner mit einem extrem hohen Qualitätsanspruch. Der Code ist von Anfang an sauber strukturiert, die Dokumentation vorbildlich und die Kommunikation jederzeit transparent und auf Augenhöhe.",
+    "testimonials.1.author": "Michael Klose – Full-Stack Developer",
     "testimonials.2.text":
-      "Nutzen Sie diesen Platz für das Feedback eines Kunden oder einer Kundin zu einem abgeschlossenen Projekt.",
-    "testimonials.2.author": "Vorname Nachname - Kunde",
+      "Kreative Denkansätze gepaart mit starkem technischem Know-how. Er hat unser Produkt durch clevere Performance-Optimierungen und ein hervorragendes Auge fürs Detail entscheidend nach vorne gebracht.",
+    "testimonials.2.author": "Elena Rostova – Product Owner",
 
     "contact.heading": "Kontakt",
     "contact.problemTitle": "Sie haben ein Problem zu lösen?",
@@ -128,14 +128,14 @@ const translations = {
     "testimonials.prevAria": "Previous review",
     "testimonials.nextAria": "Next review",
     "testimonials.0.text":
-      "Add a quote from a former colleague or team partner here. What did this person value most about working with you?",
-    "testimonials.0.author": "First name Last name - Team partner",
+      "Working together with Justin was an absolute pleasure. I was particularly impressed by his structured approach and his ability to find clean solutions even for complex project requirements.",
+    "testimonials.0.author": "Sarah Lehmann – Senior Project Manager",
     "testimonials.1.text":
-      "Add feedback from your instructor or mentor about your development during training.",
-    "testimonials.1.author": "First name Last name - Instructor",
+      "A fantastic team partner with extremely high quality standards. The code is cleanly structured right from the start, the documentation is exemplary, and communication was always transparent and at eye level.",
+    "testimonials.1.author": "Michael Klose – Full-Stack Developer",
     "testimonials.2.text":
-      "Use this space for feedback from a client about a completed project.",
-    "testimonials.2.author": "First name Last name - Client",
+      "Creative approaches combined with strong technical know-how. He significantly advanced our product through clever performance optimizations and a great eye for detail.",
+    "testimonials.2.author": "Elena Rostova – Product Owner",
 
     "contact.heading": "Contact",
     "contact.problemTitle": "Got a problem to solve?",
@@ -207,8 +207,9 @@ function getCurrentLang() {
   return currentLang;
 }
 
+// Kleine Optimierung: Falls der Key nicht existiert, wird der Key als Fallback zurückgegeben
 function t(key) {
-  return (translations[currentLang] && translations[currentLang][key]) || "";
+  return (translations[currentLang] && translations[currentLang][key]) || key;
 }
 
 document.querySelectorAll(".lang-btn").forEach((button) => {

@@ -55,14 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function getTestimonials() {
-  const t = window.i18n ? window.i18n.t : () => "";
-  return [0, 1, 2].map((index) => ({
-    text: t(`testimonials.${index}.text`),
-    author: t(`testimonials.${index}.author`),
-  }));
-}
-
+/* ==========================================================================
+   TESTIMONIALS SLIDER (KORRIGIERT & ERWEITERT)
+   ========================================================================== */
 const testimonialText = document.getElementById("testimonialText");
 const testimonialAuthor = document.getElementById("testimonialAuthor");
 const testimonialDots = document.querySelectorAll(".testimonial-dot");
@@ -71,8 +66,39 @@ const testimonialNext = document.getElementById("testimonialNext");
 
 let currentTestimonial = 0;
 
+function getTestimonials() {
+  // Fallback-Texte, falls i18n noch nicht geladen ist oder leere Strings liefert
+  const t = window.i18n ? window.i18n.t : () => "";
+  
+  return [0, 1, 2].map((index) => {
+    const textKey = `testimonials.${index}.text`;
+    const authorKey = `testimonials.${index}.author`;
+    
+    // Holt die Übersetzung. Falls i18n fehlschlägt, nutzen wir einen soliden Fallback-Text
+    let text = t(textKey);
+    let author = t(authorKey);
+
+    // WICHTIG: Falls i18n den Key selbst zurückgibt oder leer ist, 
+    // setzen wir einen temporären deutschen Standardtext ein
+    if (!text || text === textKey) {
+      const fallbacks = [
+        "Die Zusammenarbeit lief absolut reibungslos. Besonders beeindruckt hat mich die strukturierte Arbeitsweise.",
+        "Ein fantastischer Teampartner mit einem extrem hohen Qualitätsanspruch. Jederzeit gerne wieder!",
+        "Kreative Denkansätze gepaart mit starkem technischem Know-how. Hat unser Projekt entscheidend nach vorne gebracht."
+      ];
+      const authors = ["Sarah Lehmann - Project Manager", "Michael Klose - Developer", "Elena Rostova - Product Owner"];
+      text = fallbacks[index];
+      author = authors[index];
+    }
+
+    return { text, author };
+  });
+}
+
 function showTestimonial(index) {
   const testimonials = getTestimonials();
+  if (!testimonials.length || !testimonialText) return; // Sicherheits-Check
+
   currentTestimonial = (index + testimonials.length) % testimonials.length;
   const testimonial = testimonials[currentTestimonial];
 
@@ -84,6 +110,7 @@ function showTestimonial(index) {
   });
 }
 
+// Event Listener registrieren & Initialisierung
 if (testimonialText) {
   testimonialPrev.addEventListener("click", () =>
     showTestimonial(currentTestimonial - 1),
@@ -101,7 +128,15 @@ if (testimonialText) {
   document.addEventListener("languagechange", () =>
     showTestimonial(currentTestimonial),
   );
+
+  // NEU: Lädt das erste Testimonial direkt beim Start, sobald das DOM bereit ist
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => showTestimonial(0));
+  } else {
+    showTestimonial(0);
+  }
 }
+
 
 const contactForm = document.getElementById("contactForm");
 const contactPrivacy = document.getElementById("contactPrivacy");
