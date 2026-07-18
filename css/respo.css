@@ -31,6 +31,11 @@
       visibility 0.25s ease;
   }
 
+  .navbar {
+    height: 60px !important;
+    padding: 5px !important;
+  }
+
   .nav-menu.is-open {
     opacity: 1;
     visibility: visible;
@@ -90,6 +95,10 @@
     min-height: calc(100dvh - 214px);
   }
 
+  .hero::after {
+    display: none;
+  }
+
   .hero-inner {
     height: calc(100dvh - 214px);
     flex-direction: column;
@@ -103,6 +112,16 @@
   .hero-image {
     width: min(70vw, 340px);
     align-self: center;
+  }
+
+  .hero-image::before {
+    display: block;
+    left: 50%;
+    top: 65%;
+    bottom: 0;
+    width: 100vw;
+    max-width: none;
+    transform: translateX(-50%);
   }
 
   .hero-content {
