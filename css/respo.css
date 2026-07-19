@@ -64,11 +64,14 @@
   }
 
   footer {
-    flex-direction: column;
-    height: auto;
-    gap: 24px;
-    padding: 40px 20px;
+    padding: 40px 0;
     text-align: center;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    min-height: 0;
+    gap: 24px;
   }
 
   .footer-logo {
