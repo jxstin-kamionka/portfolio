@@ -82,6 +82,110 @@ const translations = {
 
     "footer.impressum": "Impressum",
     "footer.copyright": "© 2024 Justin Kamionka",
+
+    "legal.eyebrow": "Rechtliches",
+    "legal.back": "Zurück zur Startseite",
+
+    "datenschutz.title": "Datenschutzerklärung",
+    "datenschutz.updated": "Stand: Juli 2026",
+    "datenschutz.s1.h": "1. Verantwortlicher",
+    "datenschutz.s1.p1":
+      "Verantwortlicher für die Datenverarbeitung auf dieser Website ist:",
+    "datenschutz.s1.address":
+      '<strong>Justin Kamionka IT Dienstleistungen</strong><br />\n            <span class="legal-placeholder">Goldbachstraße 4, 97688 Bad Kissingen</span><br />\n            E-Mail:\n            <a href="mailto:info@justinkamionka.de">info@justinkamionka.de</a>',
+    "datenschutz.s1.p2":
+      'Die vollständigen Kontaktdaten finden Sie im <a href="./impressum.html">Impressum</a>.',
+
+    "datenschutz.s2.h": "2. Allgemeines zur Datenverarbeitung",
+    "datenschutz.s2.p1":
+      "Ich erhebe und verwende personenbezogene Daten meiner Nutzer grundsätzlich nur, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie meiner Inhalte und Leistungen erforderlich ist. Die Erhebung und Verwendung personenbezogener Daten erfolgt regelmäßig nur nach Einwilligung der Nutzer oder auf Grundlage eines berechtigten Interesses (Art. 6 Abs. 1 lit. a und f DSGVO).",
+    "datenschutz.s2.p2":
+      "Eine Ausnahme gilt in solchen Fällen, in denen eine vorherige Einholung einer Einwilligung aus tatsächlichen Gründen nicht möglich ist und die Verarbeitung der Daten durch gesetzliche Vorschriften gestattet ist.",
+
+    "datenschutz.s3.h": "3. Bereitstellung der Website und Server-Logfiles",
+    "datenschutz.s3.p1":
+      "Beim Aufrufen dieser Website werden durch den auf meinem Server automatisch technische Informationen erfasst, die Ihr Browser übermittelt. Dazu gehören unter anderem:",
+    "datenschutz.s3.list":
+      "<li>Browsertyp und -version</li>\n            <li>verwendetes Betriebssystem</li>\n            <li>Referrer-URL</li>\n            <li>Hostname des zugreifenden Rechners</li>\n            <li>Uhrzeit der Serveranfrage</li>\n            <li>IP-Adresse (gekürzt bzw. nur temporär gespeichert)</li>",
+    "datenschutz.s3.p2":
+      "Diese Daten sind technisch erforderlich, um Ihnen die Website auszuliefern und die Stabilität sowie Sicherheit des Angebots zu gewährleisten. Rechtsgrundlage hierfür ist mein berechtigtes Interesse gemäß Art. 6 Abs. 1 lit. f DSGVO. Eine Zusammenführung dieser Daten mit anderen Datenquellen findet nicht statt.",
+
+    "datenschutz.s4.h": "4. Kontaktformular",
+    "datenschutz.s4.p1":
+      "Wenn Sie mir über das Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Formular - Name, E-Mail-Adresse und Nachricht - zum Zweck der Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen bei mir gespeichert und verarbeitet. Die Übermittlung erfolgt direkt an mein E-Mail-Postfach.",
+    "datenschutz.s4.p2":
+      "Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage der Anbahnung eines Vertrags dient, andernfalls mein berechtigtes Interesse an der Beantwortung von Anfragen gemäß Art. 6 Abs. 1 lit. f DSGVO.",
+    "datenschutz.s4.p3":
+      "Zur Erkennung automatisierter Formular-Einsendungen (Spam) enthält das Formular ein zusätzliches, für Menschen unsichtbares Feld (Honeypot). Dessen Inhalt wird ausschließlich zur Spam-Abwehr ausgewertet und nicht weiterverarbeitet.",
+    "datenschutz.s4.p4":
+      "Die über das Formular übermittelten Daten verbleiben bei mir, bis Sie mich zur Löschung auffordern, Ihre Einwilligung widerrufen oder der Zweck für die Datenspeicherung entfällt. Zwingende gesetzliche Aufbewahrungsfristen bleiben unberührt.",
+
+    "datenschutz.s5.h": "5. Google Fonts",
+    "datenschutz.s5.p1":
+      "Diese Website bindet zur einheitlichen Darstellung von Schriftarten sogenannte Google Fonts ein, die von einem Server von Google bereitgestellt werden. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Schriftarten in den Browser-Cache, wodurch eine Verbindung zu Servern von Google LLC bzw. der Google Ireland Limited hergestellt und dabei Ihre IP-Adresse übermittelt wird.",
+    "datenschutz.s5.p2":
+      'Die Nutzung erfolgt im Interesse einer einheitlichen und ansprechenden Darstellung meiner Online-Angebote und stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar. Weitere Informationen zu Google Fonts finden Sie unter <a href="https://developers.google.com/fonts/faq" target="_blank" rel="noopener">developers.google.com/fonts/faq</a> sowie in der <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Datenschutzerklärung von Google</a>.',
+
+    "datenschutz.s6.h": "6. Cookies",
+    "datenschutz.s6.p1":
+      "Diese Website setzt keine Cookies ein und verwendet keine Analyse- oder Tracking-Dienste. Es findet keine Erstellung von Nutzungsprofilen statt.",
+
+    "datenschutz.s7.h": "7. Ihre Rechte als betroffene Person",
+    "datenschutz.s7.p1":
+      "Ihnen stehen hinsichtlich Ihrer personenbezogenen Daten grundsätzlich folgende Rechte zu:",
+    "datenschutz.s7.list":
+      "<li>Recht auf Auskunft (Art. 15 DSGVO)</li>\n            <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>\n            <li>Recht auf Löschung (Art. 17 DSGVO)</li>\n            <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>\n            <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>\n            <li>Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>\n            <li>Recht auf Widerruf einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO)</li>",
+    "datenschutz.s7.p2":
+      "Zur Ausübung dieser Rechte genügt eine formlose Nachricht an die oben genannte E-Mail-Adresse. Ihnen steht zudem ein Beschwerderecht bei der für mich zuständigen Datenschutz-Aufsichtsbehörde zu.",
+
+    "datenschutz.s8.h": "8. Datensicherheit",
+    "datenschutz.s8.p1":
+      'Diese Website nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung für die Übertragung Ihrer Daten. Eine verschlüsselte Verbindung erkennen Sie an dem Schloss-Symbol sowie der Adresszeile Ihres Browsers, die mit "https://" beginnt.',
+
+    "datenschutz.s9.h":
+      "9. Aktualität und Änderung dieser Datenschutzerklärung",
+    "datenschutz.s9.p1":
+      "Diese Datenschutzerklärung ist aktuell gültig. Durch die Weiterentwicklung meiner Website oder aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern.",
+
+    "impressum.title": "Impressum",
+    "impressum.updated": "Stand: Juli 2026",
+    "impressum.s1.h": "Angaben gemäß § 5 TMG",
+    "impressum.s1.address":
+      '<strong>Justin Kamionka IT Dienstleistungen</strong><br />\n            <span class="legal-placeholder">Goldbachstraße 4</span><br />\n            <span class="legal-placeholder">97688 Bad Kissingen</span><br />\n            Deutschland',
+
+    "impressum.s2.h": "Kontakt",
+    "impressum.s2.p1":
+      'E-Mail:\n            <a href="mailto:info@justinkamionka.de">info@justinkamionka.de</a>',
+
+    "impressum.s3.h": "Redaktionell verantwortlich",
+    "impressum.s3.p1":
+      'Justin Kamionka,\n            <span class="legal-placeholder">Goldbachstraße 4, 97688 Bad Kissingen</span>',
+
+    "impressum.s4.h": "EU-Streitschlichtung",
+    "impressum.s4.p1":
+      'Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie hier finden: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. Meine E-Mail-Adresse finden Sie oben in diesem Impressum.',
+
+    "impressum.s5.h": "Verbraucherstreitbeilegung / Universalschlichtungsstelle",
+    "impressum.s5.p1":
+      "Ich bin nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+
+    "impressum.s6.h": "Haftung für Inhalte",
+    "impressum.s6.p1":
+      "Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.",
+    "impressum.s6.p2":
+      "Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.",
+
+    "impressum.s7.h": "Haftung für Links",
+    "impressum.s7.p1":
+      "Mein Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.",
+    "impressum.s7.p2":
+      "Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.",
+
+    "impressum.s8.h": "Urheberrecht",
+    "impressum.s8.p1":
+      "Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.",
+    "impressum.s8.p2":
+      "Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht von mir erstellt wurden, werden die Urheberrechte Dritter beachtet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis.",
   },
 
   en: {
@@ -153,6 +257,8 @@ const translations = {
       'I have read the <a href="./datenschutz.html" target="_blank" rel="noopener">privacy policy</a> and agree to my data being processed as described.',
     "contact.submitBtn": "Send message :)",
     "contact.sending": "Sending...",
+    "contact.successMessage":
+      "Thank you for your message! I'll get back to you shortly.",
     "contact.genericError":
       "The message could not be sent. Please try again later.",
     "contact.scrollTopAria": "Scroll to top",
@@ -163,6 +269,111 @@ const translations = {
 
     "footer.impressum": "Legal Notice",
     "footer.copyright": "© 2024 Justin Kamionka",
+
+    "legal.eyebrow": "Legal",
+    "legal.back": "Back to homepage",
+
+    "datenschutz.title": "Privacy Policy",
+    "datenschutz.updated": "Last updated: July 2026",
+    "datenschutz.s1.h": "1. Controller",
+    "datenschutz.s1.p1":
+      "The controller responsible for data processing on this website is:",
+    "datenschutz.s1.address":
+      '<strong>Justin Kamionka IT Dienstleistungen</strong><br />\n            <span class="legal-placeholder">Goldbachstraße 4, 97688 Bad Kissingen</span><br />\n            Email:\n            <a href="mailto:info@justinkamionka.de">info@justinkamionka.de</a>',
+    "datenschutz.s1.p2":
+      'The full contact details can be found in the <a href="./impressum.html">legal notice</a>.',
+
+    "datenschutz.s2.h": "2. General information on data processing",
+    "datenschutz.s2.p1":
+      "I only collect and use my users' personal data to the extent necessary to provide a functional website along with my content and services. Personal data is generally collected and used only with the user's consent or on the basis of a legitimate interest (Art. 6 (1) lit. a and f GDPR).",
+    "datenschutz.s2.p2":
+      "An exception applies in cases where obtaining prior consent is not possible for practical reasons and the processing of the data is permitted by law.",
+
+    "datenschutz.s3.h": "3. Provision of the website and server log files",
+    "datenschutz.s3.p1":
+      "When you access this website, technical information transmitted by your browser is automatically collected on my server. This includes, among other things:",
+    "datenschutz.s3.list":
+      "<li>Browser type and version</li>\n            <li>Operating system used</li>\n            <li>Referrer URL</li>\n            <li>Hostname of the accessing device</li>\n            <li>Time of the server request</li>\n            <li>IP address (shortened or stored only temporarily)</li>",
+    "datenschutz.s3.p2":
+      "This data is technically required to deliver the website to you and to ensure the stability and security of the service. The legal basis for this is my legitimate interest pursuant to Art. 6 (1) lit. f GDPR. This data is not merged with other data sources.",
+
+    "datenschutz.s4.h": "4. Contact form",
+    "datenschutz.s4.p1":
+      "If you send me inquiries via the contact form, your details from the form - name, email address and message - are stored and processed by me for the purpose of handling your inquiry and in case of follow-up questions. The submission is sent directly to my email inbox.",
+    "datenschutz.s4.p2":
+      "The legal basis for this processing is Art. 6 (1) lit. b GDPR, provided your inquiry relates to the initiation of a contract; otherwise it is my legitimate interest in responding to inquiries pursuant to Art. 6 (1) lit. f GDPR.",
+    "datenschutz.s4.p3":
+      "To detect automated form submissions (spam), the form contains an additional field that is invisible to humans (honeypot). Its content is used exclusively for spam prevention and is not processed any further.",
+    "datenschutz.s4.p4":
+      "The data submitted via the form remains with me until you request its deletion, withdraw your consent, or the purpose for storing the data no longer applies. Mandatory statutory retention periods remain unaffected.",
+
+    "datenschutz.s5.h": "5. Google Fonts",
+    "datenschutz.s5.p1":
+      "For a consistent display of typefaces, this website embeds so-called Google Fonts, which are provided by a Google server. When you access a page, your browser loads the required fonts into the browser cache, which establishes a connection to servers operated by Google LLC or Google Ireland Limited and transmits your IP address in the process.",
+    "datenschutz.s5.p2":
+      'This is done in the interest of a consistent and appealing presentation of my online services and constitutes a legitimate interest within the meaning of Art. 6 (1) lit. f GDPR. Further information on Google Fonts can be found at <a href="https://developers.google.com/fonts/faq" target="_blank" rel="noopener">developers.google.com/fonts/faq</a> and in <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google\'s privacy policy</a>.',
+
+    "datenschutz.s6.h": "6. Cookies",
+    "datenschutz.s6.p1":
+      "This website does not use cookies and does not use any analytics or tracking services. No user profiles are created.",
+
+    "datenschutz.s7.h": "7. Your rights as a data subject",
+    "datenschutz.s7.p1":
+      "With regard to your personal data, you generally have the following rights:",
+    "datenschutz.s7.list":
+      "<li>Right to information (Art. 15 GDPR)</li>\n            <li>Right to rectification (Art. 16 GDPR)</li>\n            <li>Right to erasure (Art. 17 GDPR)</li>\n            <li>Right to restriction of processing (Art. 18 GDPR)</li>\n            <li>Right to data portability (Art. 20 GDPR)</li>\n            <li>Right to object to processing (Art. 21 GDPR)</li>\n            <li>Right to withdraw consent given (Art. 7 (3) GDPR)</li>",
+    "datenschutz.s7.p2":
+      "To exercise these rights, an informal message to the email address given above is sufficient. You also have the right to lodge a complaint with the data protection supervisory authority responsible for me.",
+
+    "datenschutz.s8.h": "8. Data security",
+    "datenschutz.s8.p1":
+      'For security reasons, this website uses SSL/TLS encryption for the transmission of your data. You can recognize an encrypted connection by the padlock icon and by the address bar of your browser starting with "https://".',
+
+    "datenschutz.s9.h":
+      "9. Currency and amendment of this privacy policy",
+    "datenschutz.s9.p1":
+      "This privacy policy is currently valid. Due to the further development of my website or changes to legal or regulatory requirements, it may become necessary to amend this privacy policy.",
+
+    "impressum.title": "Legal Notice",
+    "impressum.updated": "Last updated: July 2026",
+    "impressum.s1.h": "Information pursuant to § 5 TMG",
+    "impressum.s1.address":
+      '<strong>Justin Kamionka IT Dienstleistungen</strong><br />\n            <span class="legal-placeholder">Goldbachstraße 4</span><br />\n            <span class="legal-placeholder">97688 Bad Kissingen</span><br />\n            Germany',
+
+    "impressum.s2.h": "Contact",
+    "impressum.s2.p1":
+      'Email:\n            <a href="mailto:info@justinkamionka.de">info@justinkamionka.de</a>',
+
+    "impressum.s3.h": "Responsible for editorial content",
+    "impressum.s3.p1":
+      'Justin Kamionka,\n            <span class="legal-placeholder">Goldbachstraße 4, 97688 Bad Kissingen</span>',
+
+    "impressum.s4.h": "EU dispute resolution",
+    "impressum.s4.p1":
+      'The European Commission provides a platform for online dispute resolution (ODR), which you can find here: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. My email address can be found above in this legal notice.',
+
+    "impressum.s5.h":
+      "Consumer dispute resolution / universal arbitration board",
+    "impressum.s5.p1":
+      "I am not willing and not obliged to participate in dispute resolution proceedings before a consumer arbitration board.",
+
+    "impressum.s6.h": "Liability for content",
+    "impressum.s6.p1":
+      "As a service provider, I am responsible for my own content on these pages in accordance with general laws pursuant to § 7 (1) TMG. However, pursuant to §§ 8 to 10 TMG, I am not obliged as a service provider to monitor transmitted or stored third-party information or to investigate circumstances that indicate unlawful activity.",
+    "impressum.s6.p2":
+      "Obligations to remove or block the use of information under general law remain unaffected. However, liability in this regard is only possible from the point in time at which a specific infringement becomes known. Upon becoming aware of any such infringements, I will remove this content immediately.",
+
+    "impressum.s7.h": "Liability for links",
+    "impressum.s7.p1":
+      "My offering contains links to external third-party websites over whose content I have no influence. I therefore cannot accept any liability for this third-party content. The respective provider or operator of the linked pages is always responsible for their content. The linked pages were checked for possible legal violations at the time of linking. No unlawful content was identifiable at the time of linking.",
+    "impressum.s7.p2":
+      "However, permanent monitoring of the content of linked pages is not reasonable without concrete evidence of a legal violation. Upon becoming aware of any legal violations, I will remove such links immediately.",
+
+    "impressum.s8.h": "Copyright",
+    "impressum.s8.p1":
+      "The content and works created by me on these pages are subject to German copyright law. Reproduction, editing, distribution and any kind of use beyond the scope of copyright law require the written consent of the respective author or creator.",
+    "impressum.s8.p2":
+      "Downloads and copies of this page are only permitted for private, non-commercial use. Insofar as the content on this page was not created by me, the copyrights of third parties are respected. If you nevertheless become aware of a copyright infringement, please notify me accordingly.",
   },
 };
 
@@ -212,13 +423,46 @@ function t(key) {
   return (translations[currentLang] && translations[currentLang][key]) || key;
 }
 
+const LANG_STORAGE_KEY = "preferredLang";
+
+function getStoredLang() {
+  try {
+    return localStorage.getItem(LANG_STORAGE_KEY);
+  } catch (e) {
+    return null;
+  }
+}
+
+function storeLang(lang) {
+  try {
+    localStorage.setItem(LANG_STORAGE_KEY, lang);
+  } catch (e) {
+    // localStorage nicht verfügbar (z. B. privater Modus)
+  }
+}
+
+function syncLangButtons(lang) {
+  document.querySelectorAll(".lang-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.lang === lang);
+  });
+}
+
 document.querySelectorAll(".lang-btn").forEach((button) => {
   button.addEventListener("click", () => {
     const lang = button.dataset.lang;
     if (supportedLangs.includes(lang)) {
       applyLanguage(lang);
+      storeLang(lang);
+      syncLangButtons(lang);
     }
   });
 });
+
+const storedLang = getStoredLang();
+const initialLang = supportedLangs.includes(storedLang)
+  ? storedLang
+  : currentLang;
+applyLanguage(initialLang);
+syncLangButtons(initialLang);
 
 window.i18n = { translations, applyLanguage, getCurrentLang, t };
