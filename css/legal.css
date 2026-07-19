@@ -1,4 +1,8 @@
-/* ---------- Legal pages (Impressum / Datenschutz) ---------- */
+/* ---------- Legal pages (Impressum / Datenschutz) ----------
+   Gilt für datenschutz.html und impressum.html. Beide Seiten teilen sich
+   dasselbe Markup-Muster (.legal-section-Wiederholungen) - die eigentlichen
+   Texte kommen dynamisch aus js/translate.js über data-i18n(-html).
+*/
 .legal {
   position: relative;
   background: var(--color-bg-dark);
@@ -115,6 +119,8 @@
   color: var(--color-white);
 }
 
+/* Markiert Platzhalter-Angaben (z. B. Adresse), die vor dem Live-Gang noch
+   durch echte Daten ersetzt werden müssen - bewusst auffällig eingefärbt. */
 .legal-placeholder {
   color: #ffb454;
   font-weight: 600;

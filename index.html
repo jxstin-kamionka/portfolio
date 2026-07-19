@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Justin Kamionka - Portfolio</title>
+    <title>Justin Kamionka - IT Dienstleistungen</title>
     <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,6 +30,7 @@
         </defs>
       </svg>
 
+      <!-- Navigation: fixiert oben, Sprachumschalter + mobiles Burger-Menü (js/main.js) -->
       <header class="navbar">
         <div class="container nav-inner">
           <a class="logo" href="#home"
@@ -121,6 +122,7 @@
         </div>
       </section>
 
+      <!-- Social-Bar: schmaler Streifen mit Kontakt-/Social-Icons unterhalb des Hero -->
       <section class="box social-bar">
         <div class="container social-bar-inner">
           <span class="social-bar-line"></span>
@@ -161,6 +163,7 @@
         </div>
       </section>
 
+      <!-- Über mich: Lauftext + drei Kernaussagen (Standort, Lernbereitschaft, Vorgehen) -->
       <section class="about box" id="about">
         <div class="container about-inner">
           <div class="about-content">
@@ -230,10 +233,12 @@
         </div>
       </section>
 
+      <!-- Skills: Icon-Grid links, Beschreibung + CTA rechts -->
       <section class="skills box" id="skills">
         <div class="skills-glow"></div>
 
         <div class="container skills-inner">
+          <!-- Jedes Icon trägt einzeln ".box" für das gestaffelte Wellen-Einblenden (css/animation.css) -->
           <div class="skills-grid">
             <div class="box skill-item">
               <img
@@ -352,6 +357,11 @@
         </div>
       </section>
 
+      <!--
+        Portfolio: drei Projektkarten (Laptop-Mockup + Screenshot, abwechselnd
+        gespiegelt via ".portfolio-item--reverse"). Neue Projekte folgen
+        demselben Markup-Muster.
+      -->
       <section class="portfolio" id="portfolio">
         <div class="portfolio-glow portfolio-glow--green"></div>
         <div class="portfolio-glow portfolio-glow--purple"></div>
@@ -498,6 +508,11 @@
         </div>
       </section>
 
+      <!--
+        Testimonials: nur EIN Kartenslot im Markup. Inhalt wird per JS
+        (js/main.js -> showTestimonial) aus translate.js-Übersetzungen
+        nachgeladen, gesteuert über Pfeile/Dots.
+      -->
       <section class="testimonials box" id="testimonials">
         <div class="container testimonials-inner">
           <div class="testimonial-card-wrap">
@@ -593,6 +608,11 @@
         </div>
       </section>
 
+      <!--
+        Kontakt: Formular wird per Fetch an mailer.php gesendet (js/main.js).
+        Das versteckte "website"-Feld ist ein Honeypot gegen Spam-Bots -
+        NICHT entfernen, bleibt für Menschen unsichtbar/leer.
+      -->
       <section class="contact box" id="contact">
         <div class="contact-glow"></div>
 
@@ -755,6 +775,7 @@
 
       <div class="green-line"></div>
 
+      <!-- Footer: Logo, Copyright, Impressum-Link und Social-Icons -->
       <footer class="box">
         <div class="container footer-inner">
           <div class="footer-logo">

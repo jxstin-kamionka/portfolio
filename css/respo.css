@@ -1,10 +1,18 @@
-/* ---------- Responsive ---------- */
+/* ---------- Responsive ----------
+   Mobile-Anpassungen als Overrides zu style.css/legal.css. Die drei
+   Breakpoints unten sind bewusst gestaffelt: 980px = Tablet/Nav-Umbruch,
+   520px = kleine Handys, 420px = sehr schmale Displays.
+*/
 
+/* Tablet & Mobile: Burger-Menü ersetzt die Desktop-Navigation, Hero und
+   Grid-Layouts stapeln sich untereinander statt nebeneinander. */
 @media (max-width: 980px) {
   .nav-toggle {
     display: flex;
   }
 
+  /* Vollflächiges Overlay-Menü; Sichtbarkeit wird per .is-open aus
+     js/main.js (navToggle-Click-Handler) umgeschaltet. */
   .nav-menu {
     position: fixed;
     inset: 0;
@@ -279,6 +287,7 @@
   }
 }
 
+/* Kleine Handys: engere Innenabstände statt struktureller Umbrüche */
 @media (max-width: 520px) {
   .navbar {
     padding: 20px 0;
@@ -293,6 +302,8 @@
   }
 }
 
+/* Sehr schmale Displays: verkleinert Bild-/Schriftgrößen weiter, damit
+   nichts überläuft */
 @media (max-width: 420px) {
   .skills-grid {
     column-gap: 18px;

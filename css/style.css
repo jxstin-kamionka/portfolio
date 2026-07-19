@@ -38,7 +38,11 @@ button {
   border: none;
 }
 
-/* ---------- Variables ---------- */
+/* ---------- Variables ----------
+   Zentrale Design-Tokens. Farben und die Container-Breite werden im
+   gesamten Projekt (inkl. respo.css, legal.css, animation.css) über
+   diese Variablen referenziert - hier anpassen wirkt global.
+*/
 :root {
   --color-bg-dark: #10142a;
   --color-bg-light: #1a2142;
@@ -209,6 +213,8 @@ body.nav-open-lock {
   box-shadow: 0px 10px 18px rgba(16, 20, 42, 0.8);
 }
 
+/* Nutzt die in index.html per <svg><clipPath id="heroCurve"> definierte Kurve,
+   um die helle Fläche hinter dem Portrait geschwungen abzuschneiden. */
 .hero::after {
   content: "";
   position: absolute;
@@ -218,6 +224,8 @@ body.nav-open-lock {
   clip-path: url(#heroCurve);
 }
 
+/* Unscharfe Farbflecken hinter dem Portrait; die "sanft pulsierende"
+   Animation dieser Blobs steckt in css/animation.css (glow-pulse). */
 .hero-glow {
   position: absolute;
   top: 50%;
@@ -577,10 +585,13 @@ body.nav-open-lock {
   overflow: hidden;
 }
 
+/* max(...) hält den Glow-Blob innerhalb des Viewports: er sitzt normalerweise
+   links außerhalb des zentrierten Containers, weicht aber auf 20px Abstand
+   zurück, sobald der Viewport schmaler als --container-width wird. */
 .skills-glow {
   position: absolute;
   left: max(20px, calc((100% - var(--container-width)) / 2 - 173px));
-  bottom: 20px;
+  bottom: 85px;
   width: 420px;
   height: 420px;
   border-radius: 50%;
@@ -731,7 +742,7 @@ body.nav-open-lock {
 .portfolio-glow--green {
   position: absolute;
   left: max(-173px, calc((100% - var(--container-width)) / 2 - 173px));
-  top: 20px;
+  top: 80px;
   width: 420px;
   height: 420px;
   border-radius: 50%;
@@ -758,8 +769,7 @@ body.nav-open-lock {
 }
 
 .portfolio-line-left {
-  justify-self: end;
-  width: 15vw;
+  width: 100%;
   height: 2px;
   background: linear-gradient(90deg, var(--color-purple), transparent);
 }
@@ -816,6 +826,9 @@ body.nav-open-lock {
   user-select: none;
 }
 
+/* Prozentwerte sind auf das Laptop-Mockup-Bild (laptop.png) abgestimmt,
+   damit der Screenshot exakt im Displaybereich sitzt. Bei einem neuen
+   Mockup-Bild müssen left/top/width/height neu vermessen werden. */
 .portfolio-screenshot {
   position: absolute;
   left: 25.3%;
@@ -1009,6 +1022,8 @@ body.nav-open-lock {
 }
 
 /* ---------- Contact ---------- */
+/* Versteckt Inhalte optisch, hält sie aber für Screenreader zugänglich
+   (klassisches "visually hidden" Pattern) - genutzt für Formular-Labels. */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1055,6 +1070,25 @@ body.nav-open-lock {
   flex: 1;
   height: 2px;
   background: var(--color-purple);
+}
+
+/* Ab hier ist der 1440px-Container ohnehin gekappt, deshalb darf die
+   Deko-Linie hier bis zum echten Bildschirmrand gehen. Bei .portfolio-header
+   sitzt die Überschrift mittig (1fr auto 1fr), bleibt also unverändert.
+   Bei .contact-header steht "Kontakt" rechts, darum bleibt padding-right
+   wie beim normalen Container, damit die Überschrift an Ort und Stelle bleibt. */
+@media (min-width: 1440px) {
+  .portfolio-header {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .contact-header {
+    max-width: none;
+    padding-left: 0;
+    padding-right: max(32px, calc((100% - var(--container-width)) / 2 + 32px));
+  }
 }
 
 .contact-header h2 {

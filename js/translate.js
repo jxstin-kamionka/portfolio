@@ -1,3 +1,18 @@
+/**
+ * i18n-System für die gesamte Seite (index.html + Legal-Seiten).
+ *
+ * `translations` bildet Sprachcode -> flaches Key/Value-Wörterbuch ab.
+ * Keys folgen der Konvention "bereich.unterbereich(.index).feld", z. B.
+ * "portfolio.join.desc" oder "testimonials.0.text". Werte mit HTML
+ * (Links, <strong>, <li>-Listen) werden über data-i18n-html eingebunden,
+ * reiner Text über data-i18n. Im Markup verwendete Attribute:
+ *   data-i18n              -> el.textContent
+ *   data-i18n-html          -> el.innerHTML (Achtung: nur für eigene, feste Inhalte!)
+ *   data-i18n-placeholder   -> el.placeholder
+ *   data-i18n-aria          -> el.aria-label
+ * Neue Sprache hinzufügen: einfach ein weiteres Objekt (z. B. "fr")
+ * mit denselben Keys ergänzen - supportedLangs liest die Keys automatisch aus.
+ */
 const translations = {
   de: {
     "nav.about": "Über mich",
@@ -81,7 +96,7 @@ const translations = {
     "contact.validation.messageRequired": "Bitte geben Sie eine Nachricht ein.",
 
     "footer.impressum": "Impressum",
-    "footer.copyright": "© 2024 Justin Kamionka",
+    "footer.copyright": "© 2026 Justin Kamionka",
 
     "legal.eyebrow": "Rechtliches",
     "legal.back": "Zurück zur Startseite",
@@ -268,7 +283,7 @@ const translations = {
     "contact.validation.messageRequired": "Please enter a message.",
 
     "footer.impressum": "Legal Notice",
-    "footer.copyright": "© 2024 Justin Kamionka",
+    "footer.copyright": "© 2026 Justin Kamionka",
 
     "legal.eyebrow": "Legal",
     "legal.back": "Back to homepage",
@@ -380,6 +395,14 @@ const translations = {
 const supportedLangs = Object.keys(translations);
 let currentLang = document.documentElement.lang === "en" ? "en" : "de";
 
+/**
+ * Wechselt die aktive Sprache: aktualisiert html[lang], schreibt alle
+ * data-i18n(-html|-placeholder|-aria)-Elemente im DOM neu und feuert ein
+ * "languagechange"-CustomEvent, auf das z. B. js/main.js (Testimonials,
+ * Kontaktformular-Fehlermeldungen) reagiert, um dynamisch erzeugte Texte
+ * ebenfalls zu aktualisieren.
+ * @param {string} lang Sprachcode, muss ein Key in `translations` sein
+ */
 function applyLanguage(lang) {
   if (!translations[lang]) return;
   currentLang = lang;
@@ -414,17 +437,27 @@ function applyLanguage(lang) {
   );
 }
 
+/** Liefert den aktuell aktiven Sprachcode (z. B. für dynamisch erzeugte Inhalte). */
 function getCurrentLang() {
   return currentLang;
 }
 
 // Kleine Optimierung: Falls der Key nicht existiert, wird der Key als Fallback zurückgegeben
+/**
+ * Übersetzungs-Lookup für dynamisch (per JS) erzeugte Texte, die kein
+ * data-i18n-Attribut im Markup haben können (z. B. Testimonial-Inhalte,
+ * Formular-Fehlermeldungen). Wird über window.i18n.t nach außen gereicht.
+ * @param {string} key Übersetzungsschlüssel
+ * @returns {string} Übersetzter Text, oder der Key selbst als Fallback
+ */
 function t(key) {
   return (translations[currentLang] && translations[currentLang][key]) || key;
 }
 
+/* ---------- Sprachpräferenz in localStorage merken ---------- */
 const LANG_STORAGE_KEY = "preferredLang";
 
+/** Liest die zuletzt gewählte Sprache aus localStorage (null, wenn keine gespeichert oder Zugriff blockiert ist). */
 function getStoredLang() {
   try {
     return localStorage.getItem(LANG_STORAGE_KEY);
@@ -433,6 +466,7 @@ function getStoredLang() {
   }
 }
 
+/** Speichert die gewählte Sprache für den nächsten Seitenaufruf. */
 function storeLang(lang) {
   try {
     localStorage.setItem(LANG_STORAGE_KEY, lang);
@@ -441,12 +475,14 @@ function storeLang(lang) {
   }
 }
 
+/** Markiert den zur aktiven Sprache passenden .lang-btn als "active". */
 function syncLangButtons(lang) {
   document.querySelectorAll(".lang-btn").forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.lang === lang);
   });
 }
 
+/* Klick auf DE/EN-Button: Sprache anwenden, merken und Button-Zustand syncen. */
 document.querySelectorAll(".lang-btn").forEach((button) => {
   button.addEventListener("click", () => {
     const lang = button.dataset.lang;
@@ -458,6 +494,7 @@ document.querySelectorAll(".lang-btn").forEach((button) => {
   });
 });
 
+/* Initiale Sprache beim Laden: gespeicherte Präferenz, sonst html[lang]-Attribut. */
 const storedLang = getStoredLang();
 const initialLang = supportedLangs.includes(storedLang)
   ? storedLang
@@ -465,4 +502,5 @@ const initialLang = supportedLangs.includes(storedLang)
 applyLanguage(initialLang);
 syncLangButtons(initialLang);
 
+// Öffentliche Schnittstelle für andere Skripte (aktuell: js/main.js)
 window.i18n = { translations, applyLanguage, getCurrentLang, t };
