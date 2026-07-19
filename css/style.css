@@ -103,14 +103,33 @@ button {
 }
 
 .nav-links a {
+  position: relative;
   font-size: 1.5rem;
   font-weight: 500;
   color: var(--color-white);
   transition: color 0.2s ease;
 }
 
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: var(--color-green);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s ease;
+}
+
 .nav-links a:hover {
   color: var(--color-green);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .lang-switch {
@@ -525,6 +544,11 @@ body.nav-open-lock {
   border-radius: 50%;
   border: 3px solid var(--color-green);
   overflow: hidden;
+  transition: transform 0.35s ease;
+}
+
+.about-photo:hover .about-photo-circle {
+  transform: scale(1.04);
 }
 
 .about-photo-circle img {
@@ -598,6 +622,14 @@ body.nav-open-lock {
 .skill-icon {
   width: 88px;
   height: auto;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.skill-item:hover .skill-icon {
+  transform: translateY(-6px) scale(1.08);
+  filter: drop-shadow(0 8px 16px rgba(141, 225, 59, 0.45));
 }
 
 .skills-info {
@@ -699,7 +731,7 @@ body.nav-open-lock {
 .portfolio-glow--green {
   position: absolute;
   left: max(-173px, calc((100% - var(--container-width)) / 2 - 173px));
-  top: -125px;
+  top: 20px;
   width: 420px;
   height: 420px;
   border-radius: 50%;
@@ -769,6 +801,11 @@ body.nav-open-lock {
   position: relative;
   flex: 0 0 auto;
   width: min(38vw, 480px);
+  transition: transform 0.35s ease;
+}
+
+.portfolio-image:hover {
+  transform: translateY(-6px) scale(1.02);
 }
 
 .portfolio-laptop {

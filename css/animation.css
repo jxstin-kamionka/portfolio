@@ -1,12 +1,100 @@
-/* Der Ausgangszustand des Elements vor der Animation */
+/* ==========================================================================
+   Scroll-Reveal: Ausgangszustand der Elemente vor dem Einblenden
+   ========================================================================== */
 .box {
   opacity: 0;
-  transform: opacity(0) translateY(20px); /* Startet leicht nach unten verschoben */
-  transition: all 0.3s ease-out; /* Sorgt für ein sanftes Einblenden */
+  transform: translateY(32px); /* Startet leicht nach unten verschoben */
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 0.84, 0.44, 1),
+    transform 0.7s cubic-bezier(0.16, 0.84, 0.44, 1);
 }
 
-/* Die Klasse, die später per JavaScript hinzugefügt wird */
+/* Die Klasse, die per JavaScript hinzugefügt wird, sobald das Element sichtbar wird */
 .box.sichtbar {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Gestaffeltes Einblenden: Skill-Icons laufen zeilenweise als Welle ein */
+.skills-grid .box:nth-child(4n + 2) {
+  transition-delay: 0.08s;
+}
+
+.skills-grid .box:nth-child(4n + 3) {
+  transition-delay: 0.16s;
+}
+
+.skills-grid .box:nth-child(4n + 4) {
+  transition-delay: 0.24s;
+}
+
+/* ==========================================================================
+   Ambientes Glühen: sanft pulsierende Hintergrund-Blobs
+   ========================================================================== */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.hero-glow,
+.about-photo-glow,
+.skills-glow,
+.portfolio-glow,
+.contact-glow {
+  animation: glow-pulse 7s ease-in-out infinite;
+}
+
+.hero-glow--green,
+.portfolio-glow--purple,
+.contact-glow {
+  animation-delay: -3.5s;
+}
+
+/* Sanftes Schweben des Hero-Portraits */
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.hero-image img {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+/* Weicher Wechsel der Testimonial-Inhalte beim Slide-Wechsel */
+.testimonial-card {
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.testimonial-card.is-fading {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* Bewegung reduzieren, wenn vom Nutzer per Systemeinstellung gewünscht */
+@media (prefers-reduced-motion: reduce) {
+  .box {
+    transition: none;
+  }
+
+  .hero-glow,
+  .about-photo-glow,
+  .skills-glow,
+  .portfolio-glow,
+  .contact-glow,
+  .hero-image img,
+  .hero-scroll svg {
+    animation: none;
+  }
 }

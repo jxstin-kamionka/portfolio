@@ -101,13 +101,25 @@ function showTestimonial(index) {
 
   currentTestimonial = (index + testimonials.length) % testimonials.length;
   const testimonial = testimonials[currentTestimonial];
+  const card = testimonialText.closest(".testimonial-card");
 
-  testimonialText.textContent = testimonial.text;
-  testimonialAuthor.textContent = testimonial.author;
+  const applyContent = () => {
+    testimonialText.textContent = testimonial.text;
+    testimonialAuthor.textContent = testimonial.author;
 
-  testimonialDots.forEach((dot, dotIndex) => {
-    dot.classList.toggle("active", dotIndex === currentTestimonial);
-  });
+    testimonialDots.forEach((dot, dotIndex) => {
+      dot.classList.toggle("active", dotIndex === currentTestimonial);
+    });
+
+    if (card) card.classList.remove("is-fading");
+  };
+
+  if (card) {
+    card.classList.add("is-fading");
+    window.setTimeout(applyContent, 200);
+  } else {
+    applyContent();
+  }
 }
 
 // Event Listener registrieren & Initialisierung
