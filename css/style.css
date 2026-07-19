@@ -757,7 +757,7 @@ body.nav-open-lock {
 .portfolio-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 60px;
 }
 
@@ -810,7 +810,7 @@ body.nav-open-lock {
 }
 
 .portfolio-desc {
-  color: var(--color-bg-light);
+  color: white;
   line-height: 1.7;
   margin-bottom: 32px;
 }
@@ -858,6 +858,7 @@ body.nav-open-lock {
 
 .testimonial-card {
   position: relative;
+  min-height: 320px;
   max-width: 760px;
   padding: 48px 56px;
   border: 2px solid var(--color-green);
@@ -1061,7 +1062,7 @@ body.nav-open-lock {
   max-width: 600px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 5px;
 }
 
 .contact-honeypot {
@@ -1116,10 +1117,14 @@ body.nav-open-lock {
 }
 
 .contact-field-error {
-  display: none;
+  display: block;
   margin-top: 8px;
   color: #ff5c5c;
   font-size: 0.85rem;
+  height: 18px;
+  line-height: 18px;
+  overflow: hidden;
+  visibility: hidden;
 }
 
 .contact-field.has-error input,
@@ -1127,9 +1132,12 @@ body.nav-open-lock {
   border-color: #ff5c5c;
 }
 
-.contact-field.has-error .contact-field-icon,
-.contact-field.has-error .contact-field-error {
+.contact-field.has-error .contact-field-icon {
   display: block;
+}
+
+.contact-field.has-error .contact-field-error {
+  visibility: visible;
 }
 
 .contact-checkbox {
