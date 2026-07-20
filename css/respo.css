@@ -116,8 +116,17 @@
 
   .hero-image {
     width: min(82vw, 380px);
+    height: min(48vh, 380px);
     margin-top: min(6vw, 28px);
     align-self: center;
+  }
+
+  /* Höhen-Limit statt reiner Breiten-Skalierung: verhindert, dass der
+     Kopf-Ausschnitt (kein Leerraum im PNG) auf niedrigen/schmalen
+     Viewports oben aus dem Hero-Bereich "rausschaut". */
+  .hero-image img {
+    top: 10px;
+    height: 100%;
   }
 
   .hero-image::before {
@@ -194,8 +203,18 @@
   }
 
   .skills-grid {
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
+    column-gap: 24px;
+    row-gap: 32px;
+  }
+
+  /* Feste Icon-Breite entfällt: Icon füllt seine Grid-Spalte (max. 88px),
+     dadurch nie breiter als der Container - kein Clipping auf schmalen
+     Handys mehr, ganz ohne eigenen Breakpoint. */
+  .skill-icon {
+    width: 100%;
+    max-width: 88px;
   }
 
   .skills-info {
@@ -305,17 +324,12 @@
 /* Sehr schmale Displays: verkleinert Bild-/Schriftgrößen weiter, damit
    nichts überläuft */
 @media (max-width: 420px) {
-  .skills-grid {
-    column-gap: 18px;
-    row-gap: 24px;
-  }
-
-  .skill-icon {
-    width: 58px;
-  }
-
   .hero-image {
     width: min(70vw, 260px);
+  }
+
+  .hero-image img {
+    top: 60px;
   }
 
   .portfolio-image {
@@ -355,5 +369,10 @@
 
   .hero-image {
     margin-top: 10vh;
+  }
+}
+@media (max-width: 350px) {
+  .hero-image img{
+    margin-top: 20px;
   }
 }

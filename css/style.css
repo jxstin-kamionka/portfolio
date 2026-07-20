@@ -771,13 +771,13 @@ body.nav-open-lock {
 .portfolio-line-left {
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, var(--color-purple), transparent);
+  background: linear-gradient(90deg, var(--color-purple), var(--color-purple) calc(100% - 120px), transparent);
 }
 
 .portfolio-line {
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--color-purple));
+  background: linear-gradient(90deg, transparent, var(--color-purple) 120px, var(--color-purple));
 }
 
 .portfolio-intro {
