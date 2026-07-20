@@ -96,8 +96,8 @@
   }
 
   .hero {
-    height: calc(100dvh - 172px);
-    min-height: 0;
+    height: auto;
+    min-height: calc(100dvh - 172px);
   }
 
   .hero::after {
@@ -105,7 +105,8 @@
   }
 
   .hero-inner {
-    height: calc(100dvh - 172px);
+    height: auto;
+    min-height: calc(100dvh - 172px);
     flex-direction: column;
     justify-content: flex-start;
     text-align: center;
@@ -131,7 +132,7 @@
 
   .hero-image::before {
     display: block;
-    z-index: 2;
+    z-index: 0;
     left: 50%;
     top: 68%;
     bottom: -10px;
@@ -143,7 +144,7 @@
   .hero-content {
     position: relative;
     z-index: 3;
-    height: 100%;
+    height: auto;
     width: calc(100% + 64px);
     margin-left: -32px;
     margin-right: -32px;
@@ -197,8 +198,11 @@
     text-align: left;
   }
 
+  .portfolio-list {
+    gap: 0px;
+  }
   .skills-inner {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
   }
 
@@ -264,6 +268,7 @@
 
   .testimonial-card {
     max-width: 100%;
+    height: 380px;
     padding: 40px 28px;
   }
 
@@ -316,6 +321,10 @@
     padding: 0 20px;
   }
 
+  .testimonial-card {
+    height: 420px;
+  }
+
   .legal-container {
     padding: 0 20px;
   }
@@ -338,6 +347,10 @@
 
   .testimonial-photo {
     width: min(45vw, 150px);
+  }
+
+  .testimonial-card {
+    height: 460px;
   }
 
   .hero-inner {
@@ -372,7 +385,7 @@
   }
 }
 @media (max-width: 350px) {
-  .hero-image img{
+  .hero-image img {
     margin-top: 20px;
   }
 }

@@ -36,6 +36,7 @@ const translations = {
       "An einem Bug arbeite ich mich lieber einmal gründlich durch, als ihn mit einem schnellen Hack zu übertünchen. Bevor ich Code schreibe, versuche ich das eigentliche Problem zu verstehen - oft reicht schon eine saubere Skizze der Datenstruktur oder des Ablaufs, um die einfachste statt nur die erstbeste Lösung zu finden.",
 
     "skills.heading": "Meine Skills",
+    "skills.learning": "Lernbereit",
     "skills.desc1":
       "Die Icons oben zeigen die Technologien, mit denen ich in meinen Projekten regelmäßig arbeite - von HTML, CSS und JavaScript über TypeScript und Angular bis hin zu Supabase als Backend für Datenbank und Authentifizierung. Genauso selbstverständlich gehören Git zur Versionskontrolle und die Arbeit nach Scrum für mich dazu.",
     "skills.ctaTitle":
@@ -225,6 +226,7 @@ const translations = {
       "I'd rather work through a bug properly once than paper over it with a quick hack. Before I write code, I try to understand the actual problem - often a clean sketch of the data structure or the flow is enough to find the simplest solution instead of just the first one that works.",
 
     "skills.heading": "My Skills",
+    "skills.learning": "Always learning",
     "skills.desc1":
       "The icons above show the technologies I regularly work with in my projects - from HTML, CSS and JavaScript to TypeScript and Angular, right through to Supabase as a backend for database and authentication. Git for version control and working with Scrum are just as much a part of that.",
     "skills.ctaTitle":
