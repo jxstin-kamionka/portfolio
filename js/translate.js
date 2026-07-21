@@ -95,6 +95,8 @@ const translations = {
     "contact.validation.emailInvalid":
       "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
     "contact.validation.messageRequired": "Bitte geben Sie eine Nachricht ein.",
+    "contact.validation.privacyRequired":
+      "Bitte stimmen Sie der Datenschutzerklärung zu.",
 
     "footer.impressum": "Impressum",
     "footer.copyright": "© 2026 Justin Kamionka",
@@ -283,6 +285,8 @@ const translations = {
     "contact.validation.emailRequired": "Please enter your email address.",
     "contact.validation.emailInvalid": "Please enter a valid email address.",
     "contact.validation.messageRequired": "Please enter a message.",
+    "contact.validation.privacyRequired":
+      "Please agree to the privacy policy.",
 
     "footer.impressum": "Legal Notice",
     "footer.copyright": "© 2026 Justin Kamionka",

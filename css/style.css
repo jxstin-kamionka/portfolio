@@ -1296,6 +1296,10 @@ body.nav-open-lock {
   color: var(--color-green);
 }
 
+.contact-consent.has-error .contact-checkbox {
+  color: #ff8a8a;
+}
+
 .contact-submit {
   width: fit-content;
 }

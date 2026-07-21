@@ -230,7 +230,6 @@ if (testimonialText) {
    Checkbox aktiv ist.
    ========================================================================== */
 const contactForm = document.getElementById("contactForm");
-const contactPrivacy = document.getElementById("contactPrivacy");
 const contactSubmit = document.getElementById("contactSubmit");
 const contactFeedback = document.getElementById("contactFeedback");
 
@@ -270,6 +269,13 @@ function setFieldError(field, message) {
  */
 function validateContactField(field) {
   const input = field.querySelector("input, textarea");
+  if (field.dataset.field === "privacy") {
+    const message = input.checked
+      ? ""
+      : tt("contact.validation.privacyRequired");
+    setFieldError(field, message);
+    return message === "";
+  }
   const validate = contactValidators[field.dataset.field];
   const message = validate(input.value);
   setFieldError(field, message);
@@ -287,6 +293,9 @@ if (contactForm) {
         validateContactField(field);
       }
     });
+    if (input.type === "checkbox") {
+      input.addEventListener("change", () => validateContactField(field));
+    }
   });
 
   document.addEventListener("languagechange", () => {
@@ -295,10 +304,6 @@ if (contactForm) {
         validateContactField(field);
       }
     });
-  });
-
-  contactPrivacy.addEventListener("change", () => {
-    contactSubmit.disabled = !contactPrivacy.checked;
   });
 
   contactForm.addEventListener("submit", async (event) => {
@@ -311,7 +316,7 @@ if (contactForm) {
       }
     });
 
-    if (!isValid || !contactPrivacy.checked) {
+    if (!isValid) {
       return;
     }
 
@@ -334,14 +339,24 @@ if (contactForm) {
       contactFeedback.classList.add(result.ok ? "is-success" : "is-error");
 
       if (result.ok) {
-        contactForm.reset();
+        window.setTimeout(() => {
+          contactForm.reset();
+          contactFields.forEach((field) => setFieldError(field, ""));
+          contactFeedback.textContent = "";
+          contactFeedback.classList.remove("is-success", "is-error");
+          contactSubmit.textContent = submitLabel;
+          contactSubmit.disabled = false;
+        }, 3000);
+        return;
       }
     } catch (error) {
       contactFeedback.textContent = tt("contact.genericError");
       contactFeedback.classList.add("is-error");
     } finally {
-      contactSubmit.textContent = submitLabel;
-      contactSubmit.disabled = !contactPrivacy.checked;
+      if (!contactFeedback.classList.contains("is-success")) {
+        contactSubmit.textContent = submitLabel;
+        contactSubmit.disabled = false;
+      }
     }
   });
 }
