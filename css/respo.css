@@ -198,9 +198,6 @@
     text-align: left;
   }
 
-  .portfolio-list {
-    gap: 0px;
-  }
   .skills-inner {
     flex-direction: column-reverse;
     align-items: center;

@@ -15,6 +15,21 @@
   transform: translateY(0);
 }
 
+/* Richtungsvarianten: seitliches Einschweben statt nur von unten,
+   für zweispaltige Layouts wie den About-Bereich */
+.box-left {
+  transform: translate(-40px, 0);
+}
+
+.box-right {
+  transform: translate(40px, 0);
+}
+
+.box-left.sichtbar,
+.box-right.sichtbar {
+  transform: translate(0, 0);
+}
+
 /* Gestaffeltes Einblenden: Skill-Icons laufen zeilenweise als Welle ein */
 .skills-grid .box:nth-child(4n + 2) {
   transition-delay: 0.08s;

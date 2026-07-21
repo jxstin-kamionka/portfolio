@@ -99,7 +99,7 @@
                 <span class="hero-iam" data-i18n="hero.iam">Ich bin</span>
                 <h1>Justin Kamionka</h1>
                 <p class="hero-role" data-i18n="hero.role">
-                  Frontend Developer
+                  Frontend Entwickler
                 </p>
               </div>
               <a class="btn-primary" href="#contact" data-i18n="hero.cta"
@@ -166,7 +166,7 @@
       <!-- Über mich: Lauftext + drei Kernaussagen (Standort, Lernbereitschaft, Vorgehen) -->
       <section class="about box" id="about">
         <div class="container about-inner">
-          <div class="about-content">
+          <div class="about-content box box-left">
             <h2 data-i18n="about.heading">Über mich</h2>
             <p class="about-lead" data-i18n="about.lead">
               Mein Weg in die Softwareentwicklung begann nicht im Hörsaal,
@@ -223,7 +223,7 @@
             </ul>
           </div>
 
-          <div class="about-photo">
+          <div class="about-photo box box-right">
             <div class="about-photo-glow"></div>
             <div class="about-photo-circle">
               <img src="./assets/img/Justin.png" alt="Justin Kamionka" />
@@ -376,8 +376,10 @@
         demselben Markup-Muster.
       -->
       <section class="portfolio" id="portfolio">
-        <div class="portfolio-glow portfolio-glow--green"></div>
-        <div class="portfolio-glow portfolio-glow--purple"></div>
+        <div class="portfolio-glow-clip">
+          <div class="portfolio-glow portfolio-glow--green"></div>
+          <div class="portfolio-glow portfolio-glow--purple"></div>
+        </div>
 
         <div class="container portfolio-header">
           <span class="portfolio-line-left"></span>
@@ -391,8 +393,9 @@
         </p>
 
         <div class="container portfolio-list">
-          <div class="portfolio-item">
-            <div class="box portfolio-image">
+          <div class="portfolio-sticky">
+          <div class="portfolio-item is-active">
+            <div class="portfolio-image">
               <img
                 class="portfolio-laptop"
                 src="./assets/img/laptop.png"
@@ -406,7 +409,7 @@
               />
             </div>
 
-            <div class="box portfolio-text">
+            <div class="portfolio-text">
               <h3>Join</h3>
               <p class="portfolio-stack">JavaScript | HTML | CSS | Firebase</p>
               <p class="portfolio-desc" data-i18n="portfolio.join.desc">
@@ -435,7 +438,7 @@
           </div>
 
           <div class="portfolio-item portfolio-item--reverse">
-            <div class="box portfolio-image">
+            <div class="portfolio-image">
               <img
                 class="portfolio-laptop"
                 src="./assets/img/laptop.png"
@@ -449,7 +452,7 @@
               />
             </div>
 
-            <div class="box portfolio-text">
+            <div class="portfolio-text">
               <h3>El Pollo Loco</h3>
               <p class="portfolio-stack">JavaScript | HTML | CSS</p>
               <p class="portfolio-desc" data-i18n="portfolio.pollo.desc">
@@ -478,7 +481,7 @@
           </div>
 
           <div class="portfolio-item">
-            <div class="box portfolio-image">
+            <div class="portfolio-image">
               <img
                 class="portfolio-laptop"
                 src="./assets/img/laptop.png"
@@ -492,7 +495,7 @@
               />
             </div>
 
-            <div class="box portfolio-text">
+            <div class="portfolio-text">
               <h3>Pokédex</h3>
               <p class="portfolio-stack">JavaScript | HTML | CSS | API</p>
               <p class="portfolio-desc" data-i18n="portfolio.pokedex.desc">
@@ -517,6 +520,7 @@
                 >
               </div>
             </div>
+          </div>
           </div>
         </div>
       </section>

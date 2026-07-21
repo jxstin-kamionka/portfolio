@@ -22,7 +22,7 @@ const translations = {
     "nav.toggleAria": "Menü öffnen",
 
     "hero.iam": "Ich bin",
-    "hero.role": "Frontend Developer",
+    "hero.role": "Frontend Entwickler",
     "hero.cta": "Lass uns reden!",
 
     "about.heading": "Über mich",

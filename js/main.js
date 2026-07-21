@@ -49,6 +49,9 @@ if (navToggle && navMenu) {
    css/animation.css das eigentliche Einblenden (Fade + Slide-up) auslöst.
    Danach wird das Element abgemeldet (unobserve) - die Animation läuft
    also nur einmal, nicht bei jedem erneuten Scrollen ins Sichtfeld.
+   rootMargin zieht die untere Erkennungskante 15% nach oben, daher feuert
+   der Observer schon, sobald ein Element von unten ins Bild ragt, statt
+   erst bei 25% sichtbarer Fläche (das wirkte bei hohen Sections zu spät).
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
   const alleBoxen = document.querySelectorAll(".box");
@@ -63,10 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     },
     {
-      // ÄNDERUNG: Reagiert erst, wenn 25% des Objekts im Viewport sichtbar sind
-      threshold: 0.25,
-      // rootMargin komplett auf 0 setzen für exakte Bildschirmkanten
-      rootMargin: "0px",
+      threshold: 0,
+      rootMargin: "0px 0px -15% 0px",
     },
   );
 
@@ -74,6 +75,42 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(box);
   });
 });
+
+/* ==========================================================================
+   PORTFOLIO SCROLL-SLIDESHOW
+   .portfolio-list ist eine 300vh hohe Scrollstrecke; .portfolio-sticky bleibt
+   währenddessen als volle Bildschirmhöhe fixiert (position: sticky). Beim
+   normalen Runterscrollen wird anhand der Scroll-Position innerhalb dieser
+   Strecke berechnet, welches der drei Projekte gerade "aktiv" ist, und per
+   Klassenwechsel eingeblendet (Opacity-Transition in style.css).
+   ========================================================================== */
+const portfolioTrack = document.querySelector(".portfolio-list");
+const portfolioItems = document.querySelectorAll(
+  ".portfolio-list .portfolio-item",
+);
+
+function updatePortfolioActive() {
+  if (!portfolioTrack || !portfolioItems.length) return;
+
+  const rect = portfolioTrack.getBoundingClientRect();
+  const scrollable = rect.height - window.innerHeight;
+  const progress =
+    scrollable > 0 ? Math.min(Math.max(-rect.top / scrollable, 0), 1) : 0;
+  const activeIndex = Math.min(
+    portfolioItems.length - 1,
+    Math.floor(progress * portfolioItems.length),
+  );
+
+  portfolioItems.forEach((item, index) => {
+    item.classList.toggle("is-active", index === activeIndex);
+  });
+}
+
+if (portfolioTrack) {
+  window.addEventListener("scroll", updatePortfolioActive, { passive: true });
+  window.addEventListener("resize", updatePortfolioActive);
+  updatePortfolioActive();
+}
 
 /* ==========================================================================
    TESTIMONIALS SLIDER (KORRIGIERT & ERWEITERT)
