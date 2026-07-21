@@ -95,20 +95,13 @@
     padding-right: 0;
   }
 
-  .hero {
-    height: auto;
-    min-height: calc(100dvh - 172px);
-  }
-
   .hero::after {
     display: none;
   }
 
   .hero-inner {
-    height: auto;
-    min-height: calc(100dvh - 172px);
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     text-align: center;
     padding-top: 24px;
     padding-bottom: 0px;
@@ -239,6 +232,7 @@
   .portfolio-item,
   .portfolio-item--reverse {
     flex-direction: column;
+    gap: 0px;
   }
 
   .portfolio-image {
