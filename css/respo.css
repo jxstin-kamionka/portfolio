@@ -225,6 +225,10 @@
     white-space: normal;
   }
 
+  .portfolio {
+    padding: 0 16px;
+  }
+
   .portfolio-header {
     gap: 16px;
   }
@@ -282,10 +286,12 @@
   .contact-inner {
     flex-direction: column;
     text-align: center;
+    align-items: center;
   }
 
   .contact-text {
     max-width: 100%;
+    flex: none;
   }
 
   .contact-checkbox {
