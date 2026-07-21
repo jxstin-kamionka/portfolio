@@ -142,8 +142,17 @@
     margin-left: -32px;
     margin-right: -32px;
     justify-content: center;
+    /* flex-end statt center: schiebt den Text-/Button-Block ans untere Ende
+       der vorhandenen Box, statt zusätzliche Höhe zu verlangen - Letzteres
+       hat .hero (flex-shrink: 0) auf Kosten der .social-bar wachsen lassen,
+       da .hero-screen insgesamt auf 100dvh gedeckelt ist. */
+    align-items: flex-end;
+    /* erlaubt .hero-content, unter die Höhe seines Inhalts zu schrumpfen,
+       statt .hero (flex-shrink: 0) wachsen zu lassen und dabei der
+       .social-bar Platz wegzunehmen - Default wäre min-height: auto. */
+    min-height: 0;
     background: var(--color-bg-light);
-    padding: 24px 16px 8px;
+    padding: 24px 16px 20px;
   }
 
   .hero-text {
@@ -158,11 +167,10 @@
     white-space: normal;
   }
 
-  /* Rückt den CTA von der Rolle ab, statt direkt darunter zu kleben - nutzt
-     den ohnehin leeren Freiraum, den .hero-content per height:100% unter dem
-     Text lässt (siehe justify-content: center oben). */
-  .btn-primary {
-    margin-top: clamp(20px, 6vh, 48px);
+  /* Nur der Hero-CTA bekommt Abstand zur Rolle - .btn-primary wird auch in
+     Projekten/Skills/Kontakt verwendet, dort soll sich nichts ändern. */
+  .hero-text .btn-primary {
+    margin-top: 16px;
   }
 
   .hero-scroll {

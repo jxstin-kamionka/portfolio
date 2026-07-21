@@ -105,6 +105,10 @@ button {
   color: var(--color-green);
 }
 
+#heroCta {
+  margin-top: 12px;
+}
+
 .nav-menu {
   display: flex;
   align-items: center;
@@ -449,6 +453,12 @@ body.nav-open-lock {
 /* ---------- Social bar ---------- */
 .social-bar {
   position: relative;
+  /* .hero-screen (Navbar+Hero+Social-Bar) ist auf 100dvh fixiert; ohne
+     flex-shrink: 0 verliert die Social-Bar als einziges "weiches" Element
+     zuerst an Höhe, wenn der Inhalt nicht passt - Icons/Mail würden dann
+     hinter der nächsten Section verschwinden. .hero schrumpft bewusst nicht
+     (flex: 1 0 auto), hier gilt dieselbe Priorität. */
+  flex-shrink: 0;
   background: var(--color-bg-light);
   padding: 28px 0;
   width: 100%;
@@ -587,7 +597,7 @@ body.nav-open-lock {
 
 .about-photo-glow {
   position: absolute;
-  inset: 3% -35%;
+  inset: 25% -35%;
   background: var(--color-purple);
   filter: blur(clamp(55px, 8vw, 100px));
   opacity: 0.5;
