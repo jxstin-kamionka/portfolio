@@ -52,6 +52,7 @@
   font-size: clamp(2.2rem, 4.4vw, 3.2rem);
   font-weight: 800;
   margin-bottom: 12px;
+  overflow-wrap: break-word;
 }
 
 .legal-updated {
