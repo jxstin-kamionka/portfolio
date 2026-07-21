@@ -158,6 +158,13 @@
     white-space: normal;
   }
 
+  /* Rückt den CTA von der Rolle ab, statt direkt darunter zu kleben - nutzt
+     den ohnehin leeren Freiraum, den .hero-content per height:100% unter dem
+     Text lässt (siehe justify-content: center oben). */
+  .btn-primary {
+    margin-top: clamp(20px, 6vh, 48px);
+  }
+
   .hero-scroll {
     display: none;
   }
