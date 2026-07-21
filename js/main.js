@@ -233,7 +233,25 @@ const contactForm = document.getElementById("contactForm");
 const contactSubmit = document.getElementById("contactSubmit");
 const contactFeedback = document.getElementById("contactFeedback");
 
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emailPattern = /^[A-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+[A-Z]{2,63}$/i;
+
+/**
+ * Prueft eine E-Mail-Adresse strenger als das native input[type="email"]:
+ * Neben dem grundsaetzlichen Format werden Laenge und ungueltige Punkte
+ * im lokalen Teil ausgeschlossen.
+ */
+function isValidEmail(value) {
+  const email = value.trim();
+  if (email.length > 254 || !emailPattern.test(email)) return false;
+
+  const [localPart] = email.split("@");
+  return (
+    localPart.length <= 64 &&
+    !localPart.startsWith(".") &&
+    !localPart.endsWith(".") &&
+    !localPart.includes("..")
+  );
+}
 
 /** Kurzform für eine i18n-Übersetzung; liefert "" statt eines rohen Keys,
  *  solange translate.js noch nicht initialisiert ist. */
@@ -246,7 +264,7 @@ const contactValidators = {
     value.trim() === "" ? tt("contact.validation.nameRequired") : "",
   email: (value) => {
     if (value.trim() === "") return tt("contact.validation.emailRequired");
-    return emailPattern.test(value)
+    return isValidEmail(value)
       ? ""
       : tt("contact.validation.emailInvalid");
   },

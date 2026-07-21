@@ -53,8 +53,6 @@ const translations = {
       "Ein Task-Manager nach dem Kanban-Prinzip. Aufgaben lassen sich per Drag-and-Drop erstellen und organisieren, Nutzern zuweisen und Kategorien zuordnen.",
     "portfolio.pollo.desc":
       "Ein Jump-and-Run-Spiel nach objektorientiertem Ansatz. Sammle Münzen und wirf Flaschen, um dich gegen die Gegner in der Wüste zu behaupten.",
-    "portfolio.pokedex.desc":
-      "Basierend auf der PokéAPI - eine einfache Bibliothek, die Pokémon-Informationen bereitstellt und katalogisiert.",
 
     "testimonials.prevAria": "Vorherige Bewertung",
     "testimonials.nextAria": "Nächste Bewertung",
@@ -245,8 +243,6 @@ const translations = {
       "A task manager built on the Kanban principle. Tasks can be created and organized via drag-and-drop, assigned to users and sorted into categories.",
     "portfolio.pollo.desc":
       "A jump-and-run game built with an object-oriented approach. Collect coins and throw bottles to hold your own against the enemies in the desert.",
-    "portfolio.pokedex.desc":
-      "Built on the PokéAPI - a simple library that provides and catalogs Pokémon information.",
 
     "testimonials.prevAria": "Previous review",
     "testimonials.nextAria": "Next review",
