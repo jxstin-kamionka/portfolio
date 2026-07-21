@@ -60,11 +60,14 @@ button {
   padding: 0 32px;
 }
 
-/* Trägt Navbar + Hero + Social-Bar gemeinsam auf exakt 100dvh, damit der
-   Hero-Bereich (flex: 1 auf .hero) immer die Bildschirmhöhe füllt, egal wie
-   hoch Navbar/Social-Bar gerade real gerendert werden - kein Nachrechnen
-   von Pixel-Werten mehr nötig. Eigener Wrapper statt .widescreen, weil
-   .widescreen die komplette restliche Seite mit umschließt. */
+/* Trägt Navbar + Hero + Social-Bar gemeinsam auf exakt 100dvh, damit auf
+   dem Start-Screen alle drei ohne Scrollen komplett sichtbar sind. Damit das
+   auf niedrigen Viewports (iPhone SE) wirklich aufgeht, bekommt .hero-image
+   dort per calc() einen Höhen-Deckel, der den fixen Platzbedarf von Navbar/
+   Text/Social-Bar mit einrechnet (siehe .hero-image in respo.css), statt
+   dass Navbar/Social-Bar schrumpfen oder Inhalt überläuft. Eigener Wrapper
+   statt .widescreen, weil .widescreen die komplette restliche Seite mit
+   umschließt. */
 .hero-screen {
   height: 100dvh;
   display: flex;

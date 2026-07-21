@@ -103,15 +103,20 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding-top: 24px;
+    padding-top: 16px;
     padding-bottom: 0px;
     gap: 0px;
   }
 
+  /* calc(100dvh - 340px) rechnet den festen Platzbedarf von Navbar (60px),
+     Hero-Text/Button und Social-Bar mit ein, damit Navbar + Hero + Social-
+     Links auf JEDEM Viewport ohne Scrollen komplett sichtbar bleiben - auf
+     hohen Screens (z.B. S8+) greift weiter min(48vh, 380px), auf flachen
+     (z.B. iPhone SE) schrumpft das Bild stattdessen passend mit. */
   .hero-image {
     width: min(82vw, 380px);
-    height: min(48vh, 380px);
-    margin-top: min(6vw, 28px);
+    height: max(140px, min(48vh, 380px, calc(100dvh - 340px)));
+    margin-top: min(4vw, 16px);
     align-self: center;
   }
 
@@ -152,7 +157,7 @@
        .social-bar Platz wegzunehmen - Default wäre min-height: auto. */
     min-height: 0;
     background: var(--color-bg-light);
-    padding: 24px 16px 20px;
+    padding: 16px 16px 12px;
   }
 
   .hero-text {
@@ -170,23 +175,27 @@
   /* Nur der Hero-CTA bekommt Abstand zur Rolle - .btn-primary wird auch in
      Projekten/Skills/Kontakt verwendet, dort soll sich nichts ändern. */
   .hero-text .btn-primary {
-    margin-top: 16px;
+    margin-top: 10px;
   }
 
   .hero-scroll {
     display: none;
   }
 
+  .social-bar {
+    padding: 16px 0;
+  }
+
   .social-bar-inner {
     flex-wrap: wrap;
     justify-content: center;
-    row-gap: 16px;
+    row-gap: 10px;
   }
 
   .social-links {
     flex-wrap: wrap;
     justify-content: center;
-    row-gap: 12px;
+    row-gap: 10px;
   }
 
   .social-email {
