@@ -130,7 +130,7 @@
 
   .hero-image::before {
     display: block;
-    z-index: 0;
+    z-index: 2;
     left: 50%;
     top: 68%;
     bottom: -10px;

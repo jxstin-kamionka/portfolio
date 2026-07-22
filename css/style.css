@@ -317,6 +317,7 @@ body.nav-open-lock {
   width: 100%;
   height: auto;
   object-fit: contain;
+  bottom: -10px;
 }
 
 .hero-content {
@@ -600,7 +601,7 @@ body.nav-open-lock {
 
 .about-photo-glow {
   position: absolute;
-  inset: 25% -35%;
+  inset: 35% -35%;
   background: var(--color-purple);
   filter: blur(clamp(55px, 8vw, 100px));
   opacity: 0.5;
@@ -869,7 +870,6 @@ body.nav-open-lock {
 .portfolio {
   position: relative;
   background: var(--color-bg-light);
-  padding: 100px 0;
   width: 100%;
   /* kein overflow: hidden hier - würde die position: sticky Bühne von
      .portfolio-sticky brechen (Sticky braucht einen Vorfahren ohne eigenen
@@ -947,7 +947,6 @@ body.nav-open-lock {
   z-index: 1;
   color: var(--color-muted);
   max-width: 720px;
-  margin-bottom: 80px;
 }
 
 .portfolio-list {
