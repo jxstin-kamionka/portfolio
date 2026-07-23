@@ -95,6 +95,15 @@ function initializeScrollTop() {
   updateScrollTopVisibility(button);
 }
 
-initializeNavigation();
-document.addEventListener("DOMContentLoaded", initializeRevealEffects);
-initializeScrollTop();
+/**
+ * Initializes all interactive page features.
+ *
+ * @returns {void}
+ */
+function init() {
+  initializeNavigation();
+  initializeRevealEffects();
+  initializeScrollTop();
+}
+
+document.addEventListener("DOMContentLoaded", init);
