@@ -64,6 +64,11 @@
     scroll-margin-top: 76px;
   }
 
+  .portfolio-sticky {
+    top: 60px;
+    height: calc(100dvh - 60px);
+  }
+
   .nav-menu.is-open {
     opacity: 1;
     visibility: visible;

@@ -1000,8 +1000,8 @@ body.nav-open-lock {
 
 .portfolio-sticky {
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: 120px;
+  height: calc(100dvh - 120px);
   overflow: visible;
   isolation: isolate;
 }
@@ -1065,7 +1065,7 @@ body.nav-open-lock {
   inset: 0;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   gap: 60px;
   opacity: 0;
   pointer-events: none;
