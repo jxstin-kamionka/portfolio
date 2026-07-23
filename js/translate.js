@@ -36,10 +36,15 @@ function translateElements(selector, datasetKey, target) {
 function translateDocument() {
   translateElements("[data-i18n]", "i18n", "textContent");
   translateElements("[data-i18n-html]", "i18nHtml", "innerHTML");
-  translateElements("[data-i18n-placeholder]", "i18nPlaceholder", "placeholder");
+  translateElements(
+    "[data-i18n-placeholder]",
+    "i18nPlaceholder",
+    "placeholder",
+  );
   translateElements("[data-i18n-aria]", "i18nAria", "aria-label");
   const titleKey = document.body?.dataset.i18nTitle;
-  if (titleKey) document.title = translations[currentLang][titleKey] || document.title;
+  if (titleKey)
+    document.title = translations[currentLang][titleKey] || document.title;
 }
 
 /**
@@ -53,7 +58,9 @@ function applyLanguage(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
   translateDocument();
-  document.dispatchEvent(new CustomEvent("languagechange", { detail: { lang } }));
+  document.dispatchEvent(
+    new CustomEvent("languagechange", { detail: { lang } }),
+  );
 }
 
 /**
@@ -81,13 +88,8 @@ function t(key) {
  * @returns {string|null} Stored language code, if available.
  */
 function getStoredLang() {
-  try {
-    return localStorage.getItem(languageStorageKey);
-  } catch {
-    return null;
-  }
+  return localStorage.getItem(languageStorageKey);
 }
-
 /**
  * Persists the selected language when browser storage is available.
  *
@@ -95,7 +97,7 @@ function getStoredLang() {
  * @returns {void}
  */
 function storeLang(lang) {
-    localStorage.setItem(languageStorageKey, lang);
+  localStorage.setItem(languageStorageKey, lang);
 }
 
 /**
@@ -142,7 +144,9 @@ function bindLanguageButtons() {
  */
 function initializeTranslations() {
   const storedLang = getStoredLang();
-  const initialLang = supportedLangs.includes(storedLang) ? storedLang : currentLang;
+  const initialLang = supportedLangs.includes(storedLang)
+    ? storedLang
+    : currentLang;
   bindLanguageButtons();
   applyLanguage(initialLang);
   syncLanguageButtons(initialLang);

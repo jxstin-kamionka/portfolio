@@ -233,6 +233,25 @@
     margin-left: 0;
   }
 
+  /* Hohe Portrait-Viewports (z.B. iPad Air): .hero-content nicht mehr auf
+     100% strecken - sonst klafft zwischen Bild und Text eine riesige dunkle
+     Lücke. Stattdessen rutschen Bild, Kurve und Text gemeinsam ans untere
+     Ende des Hero, und das Bild darf den gewonnenen Platz nutzen. */
+  @media (min-height: 1000px) {
+    .hero-inner {
+      justify-content: flex-end;
+    }
+
+    .hero-content {
+      height: auto;
+    }
+
+    .hero-image {
+      width: min(82vw, 520px);
+      height: min(52vh, 520px);
+    }
+  }
+
   .about-inner {
     flex-direction: column-reverse;
     text-align: center;

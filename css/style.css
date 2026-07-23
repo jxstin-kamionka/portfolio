@@ -303,7 +303,7 @@ body.nav-open-lock {
   position: relative;
   flex: 0 0 auto;
   align-self: flex-end;
-  width: min(38vw, 520px);
+  width: min(47vw, 50vh);
   z-index: 0;
 }
 
@@ -444,7 +444,7 @@ body.nav-open-lock {
    Rezept nötig, nur der max-width-Deckel muss mitwachsen. */
 @media (min-width: 1440px) {
   .hero-image {
-    width: min(34vw, 640px);
+    width: min(47vw, 640px);
   }
 
   .hero-image::before {
