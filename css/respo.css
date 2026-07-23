@@ -9,6 +9,13 @@
 @media (max-width: 980px) {
   .nav-toggle {
     display: flex;
+    position: relative;
+    z-index: 26;
+  }
+
+  .navbar .logo {
+    position: relative;
+    z-index: 26;
   }
 
   /* Vollflächiges Overlay-Menü; Sichtbarkeit wird per .is-open aus
@@ -36,6 +43,25 @@
   .navbar {
     height: 60px !important;
     padding: 5px !important;
+  }
+
+  body.nav-open-lock .navbar {
+    position: fixed;
+    inset: 0 0 auto;
+    width: 100%;
+    z-index: 100;
+  }
+
+  .hero-screen {
+    height: calc(100dvh - 60px);
+  }
+
+  #home,
+  #about,
+  #skills,
+  #portfolio,
+  #contact {
+    scroll-margin-top: 76px;
   }
 
   .nav-menu.is-open {

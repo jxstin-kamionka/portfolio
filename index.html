@@ -21,6 +21,7 @@
     <script src="./js/translations-en.js" defer></script>
     <script src="./js/translate.js" defer></script>
     <script src="./js/main.js" defer></script>
+    <script src="./js/skill-tooltip.js" defer></script>
     <script src="./js/portfolio.js" defer></script>
     <script src="./js/testimonials.js" defer></script>
     <script src="./js/contact.js" defer></script>
@@ -35,8 +36,6 @@
         </defs>
       </svg>
 
-      <div class="hero-screen">
-      <!-- Navigation: fixiert oben, Sprachumschalter + mobiles Burger-Menü (js/main.js) -->
       <header class="navbar">
         <div class="container nav-inner">
           <a class="logo" href="#home"
@@ -91,6 +90,7 @@
         </div>
       </header>
 
+      <div class="hero-screen">
       <section class="box hero" id="home">
         <div class="hero-inner">
           <div class="hero-image">
@@ -330,7 +330,23 @@
             </div>
 
             <div class="box skill-item skill-item--learning">
-              <div class="skill-tooltip" role="tooltip">
+              <div class="skill-learning-anchor">
+                <button
+                  class="skill-learning-trigger"
+                  type="button"
+                  aria-expanded="false"
+                  aria-describedby="learningTooltip"
+                >
+                  <img
+                    class="skill-icon"
+                    src="./assets/icons/Lerning.png"
+                    alt=""
+                  />
+                  <span class="skill-name" data-i18n="skills.learning"
+                    >Lernbereit</span
+                  >
+                </button>
+                <div class="skill-tooltip" id="learningTooltip" role="tooltip">
                 <p data-i18n="skills.learningTooltip">
                   Ich interessiere mich besonders dafür, das noch zu lernen
                 </p>
@@ -360,15 +376,8 @@
                     <span>Vue.js</span>
                   </div>
                 </div>
+                </div>
               </div>
-              <img
-                class="skill-icon"
-                src="./assets/icons/Lerning.png"
-                alt="Continually learning"
-              />
-              <span class="skill-name" data-i18n="skills.learning"
-                >Lernbereit</span
-              >
             </div>
           </div>
 

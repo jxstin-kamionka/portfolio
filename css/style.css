@@ -65,16 +65,19 @@ button {
   padding: 0 32px;
 }
 
-/* Trägt Navbar + Hero + Social-Bar gemeinsam auf exakt 100dvh, damit auf
-   dem Start-Screen alle drei ohne Scrollen komplett sichtbar sind. Damit das
-   auf niedrigen Viewports (iPhone SE) wirklich aufgeht, bekommt .hero-image
-   dort per calc() einen Höhen-Deckel, der den fixen Platzbedarf von Navbar/
-   Text/Social-Bar mit einrechnet (siehe .hero-image in respo.css), statt
-   dass Navbar/Social-Bar schrumpfen oder Inhalt überläuft. Eigener Wrapper
-   statt .widescreen, weil .widescreen die komplette restliche Seite mit
-   umschließt. */
+/* Keeps anchored section headings visible below the sticky navigation. */
+#home,
+#about,
+#skills,
+#portfolio,
+#contact {
+  scroll-margin-top: 136px;
+}
+
+/* Keeps the hero and social bar within the viewport space below the sticky
+   navigation. The mobile override accounts for the shorter navigation bar. */
 .hero-screen {
-  height: 100dvh;
+  height: calc(100dvh - 120px);
   display: flex;
   flex-direction: column;
 }
@@ -729,14 +732,37 @@ body.nav-open-lock {
   position: relative;
 }
 
-/* Sprechblase erscheint nur beim Hover über das "Lernbereit"-Icon; per
-   opacity/visibility statt display, damit die transition sauber läuft. */
+.skill-learning-anchor {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.skill-learning-trigger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  touch-action: manipulation;
+}
+
+.skill-learning-trigger:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 6px;
+  border-radius: 8px;
+}
+
+/* The learning tooltip uses opacity and visibility for a smooth transition. */
 .skill-tooltip {
   position: absolute;
   left: 50%;
   bottom: calc(100% + 18px);
   transform: translate(-50%, 6px);
-  width: 260px;
+  width: min(260px, calc(100vw - 40px));
   padding: 18px 20px;
   background: var(--color-white);
   color: var(--color-bg-dark);
@@ -763,11 +789,20 @@ body.nav-open-lock {
   border-top-color: var(--color-white);
 }
 
-.skill-item--learning:hover .skill-tooltip {
+.skill-item--learning.is-open .skill-tooltip {
   opacity: 1;
   visibility: visible;
   transform: translate(-50%, 0);
   pointer-events: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .skill-item--learning:hover .skill-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+    pointer-events: auto;
+  }
 }
 
 .skill-tooltip p {
@@ -1069,19 +1104,19 @@ body.nav-open-lock {
   user-select: none;
 }
 
-/* Prozentwerte sind auf das Laptop-Mockup-Bild (laptop.png) abgestimmt,
-   damit der Screenshot exakt im Displaybereich sitzt. Bei einem neuen
-   Mockup-Bild müssen left/top/width/height neu vermessen werden. */
+/* Matches the measured 592 × 350 display area inside the 1200px mockup. */
 .portfolio-screenshot {
   position: absolute;
-  left: 25.3%;
-  top: 27.8%;
-  width: 49.2%;
-  height: 28.9%;
+  left: 50%;
+  top: 27.75%;
+  width: 49.34%;
+  height: auto;
+  aspect-ratio: 592 / 350;
   display: block;
   object-fit: cover;
   object-position: center center;
   border-radius: 3px;
+  transform: translateX(-50%);
 }
 
 .portfolio-text {
