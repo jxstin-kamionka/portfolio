@@ -247,7 +247,10 @@ body.nav-open-lock {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 0;
+  /* über .hero-inner (z-index 1), damit die Kurve das Portrait unten anschneidet;
+     pointer-events: none, sonst wäre der CTA-Button nicht mehr klickbar */
+  z-index: 2;
+  pointer-events: none;
   background: var(--color-bg-light);
   clip-path: url(#heroCurve);
 }
@@ -403,7 +406,7 @@ body.nav-open-lock {
   position: absolute;
   right: max(24px, calc((100% - var(--container-width)) / 2 + 24px));
   bottom: 32px;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1374,6 +1377,11 @@ body.nav-open-lock {
 
   .social-bar {
     flex: 1 0 auto;
+  }
+
+  /* der 520px-Cap aus der Basisregel ist auf so breiten Screens zu klein */
+  .hero-image {
+    width: min(34vw, 50vh);
   }
 }
 

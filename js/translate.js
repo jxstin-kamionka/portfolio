@@ -95,11 +95,7 @@ function getStoredLang() {
  * @returns {void}
  */
 function storeLang(lang) {
-  try {
     localStorage.setItem(languageStorageKey, lang);
-  } catch {
-    // The page remains usable when storage is unavailable.
-  }
 }
 
 /**

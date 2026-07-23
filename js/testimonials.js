@@ -29,7 +29,11 @@ function getTestimonial(index) {
   return { text, author };
 }
 
-/** @returns {void} */
+/**
+ * Highlights the navigation dot of the active testimonial.
+ *
+ * @returns {void}
+ */
 function updateTestimonialDots() {
   testimonialDots.forEach((dot, index) => {
     dot.classList.toggle("active", index === currentTestimonial);
@@ -76,7 +80,11 @@ function selectTestimonial(event) {
   showTestimonial(Number(event.currentTarget.dataset.index));
 }
 
-/** @returns {void} */
+/**
+ * Connects slider controls and shows the first testimonial.
+ *
+ * @returns {void}
+ */
 function initializeTestimonials() {
   if (!testimonialText || !testimonialPrev || !testimonialNext) return;
   testimonialPrev.addEventListener("click", () => showTestimonial(currentTestimonial - 1));

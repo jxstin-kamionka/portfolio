@@ -112,7 +112,11 @@ function validateContactForm(fields) {
   return isValid;
 }
 
-/** @returns {void} */
+/**
+ * Locks the form and clears old feedback while a request is running.
+ *
+ * @returns {void}
+ */
 function startContactRequest() {
   contactSubmit.disabled = true;
   contactSubmit.textContent = translateContact("contact.sending");
@@ -226,7 +230,11 @@ function bindContactField(field) {
   }
 }
 
-/** @returns {void} */
+/**
+ * Connects validation and submission when the contact form exists.
+ *
+ * @returns {void}
+ */
 function initializeContactForm() {
   if (!contactForm || !contactSubmit || !contactFeedback) return;
   const fields = contactForm.querySelectorAll("[data-field]");
