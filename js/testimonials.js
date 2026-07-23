@@ -11,7 +11,12 @@ const testimonialFallbacks = [
 ];
 let currentTestimonial = 0;
 
-/** Reads one testimonial and falls back when translation data is unavailable. */
+/**
+ * Reads one testimonial and falls back when translation data is unavailable.
+ *
+ * @param {number} index - Zero-based testimonial index.
+ * @returns {{text: string, author: string}} Testimonial copy.
+ */
 function getTestimonial(index) {
   const translate = window.i18n?.t || (() => "");
   const textKey = `testimonials.${index}.text`;
@@ -24,14 +29,20 @@ function getTestimonial(index) {
   return { text, author };
 }
 
-/** Updates slider dots for the active testimonial. */
+/** @returns {void} */
 function updateTestimonialDots() {
   testimonialDots.forEach((dot, index) => {
     dot.classList.toggle("active", index === currentTestimonial);
   });
 }
 
-/** Inserts the selected testimonial and ends its fade transition. */
+/**
+ * Inserts the selected testimonial and ends its fade transition.
+ *
+ * @param {{text: string, author: string}} testimonial - Copy to render.
+ * @param {Element|null} card - Testimonial card containing the copy.
+ * @returns {void}
+ */
 function applyTestimonial(testimonial, card) {
   testimonialText.textContent = testimonial.text;
   testimonialAuthor.textContent = testimonial.author;
@@ -39,7 +50,12 @@ function applyTestimonial(testimonial, card) {
   card?.classList.remove("is-fading");
 }
 
-/** Displays a testimonial index with circular navigation. */
+/**
+ * Displays a testimonial index with circular navigation.
+ *
+ * @param {number} index - Requested testimonial index.
+ * @returns {void}
+ */
 function showTestimonial(index) {
   if (!testimonialText) return;
   currentTestimonial = (index + testimonialFallbacks.length) % testimonialFallbacks.length;
@@ -50,12 +66,17 @@ function showTestimonial(index) {
   window.setTimeout(() => applyTestimonial(testimonial, card), 200);
 }
 
-/** Handles direct navigation from a testimonial dot. */
+/**
+ * Handles direct navigation from a testimonial dot.
+ *
+ * @param {MouseEvent} event - Click on a navigation dot.
+ * @returns {void}
+ */
 function selectTestimonial(event) {
   showTestimonial(Number(event.currentTarget.dataset.index));
 }
 
-/** Connects all testimonial controls and renders their initial state. */
+/** @returns {void} */
 function initializeTestimonials() {
   if (!testimonialText || !testimonialPrev || !testimonialNext) return;
   testimonialPrev.addEventListener("click", () => showTestimonial(currentTestimonial - 1));

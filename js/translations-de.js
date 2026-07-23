@@ -23,6 +23,8 @@ window.translations = {
 
     "skills.heading": "Meine Skills",
     "skills.learning": "Lernbereit",
+    "skills.learningTooltip":
+      "Ich interessiere mich besonders dafür, diese Technologien noch zu lernen.",
     "skills.desc1":
       "Die Icons oben zeigen die Technologien, mit denen ich in meinen Projekten regelmäßig arbeite - von HTML, CSS und JavaScript über TypeScript und Angular bis hin zu Supabase als Backend für Datenbank und Authentifizierung. Genauso selbstverständlich gehören Git zur Versionskontrolle und die Arbeit nach Scrum für mich dazu.",
     "skills.ctaTitle":
@@ -65,7 +67,7 @@ window.translations = {
     "contact.srMessage": "Ihre Nachricht",
     "contact.messagePlaceholder": "Ihre Nachricht",
     "contact.privacyText":
-      'Ich habe die <a href="./datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.',
+      'Ich habe die <a href="./privacy-policy.html">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.',
     "contact.submitBtn": "Nachricht senden :)",
     "contact.sending": "Wird gesendet...",
     "contact.successMessage":
@@ -89,6 +91,7 @@ window.translations = {
     "legal.back": "Zurück zur Startseite",
 
     "datenschutz.title": "Datenschutzerklärung",
+    "datenschutz.metaTitle": "Datenschutzerklärung - Justin Kamionka",
     "datenschutz.updated": "Stand: Juli 2026",
     "datenschutz.s1.h": "1. Verantwortlicher",
     "datenschutz.s1.p1":
@@ -96,7 +99,7 @@ window.translations = {
     "datenschutz.s1.address":
       '<strong>Justin Kamionka IT Dienstleistungen</strong><br />\n            <span class="legal-placeholder">Goldbachstraße 4, 97688 Bad Kissingen</span><br />\n            E-Mail:\n            <a href="mailto:info@justinkamionka.de">info@justinkamionka.de</a>',
     "datenschutz.s1.p2":
-      'Die vollständigen Kontaktdaten finden Sie im <a href="./impressum.html">Impressum</a>.',
+      'Die vollständigen Kontaktdaten finden Sie im <a href="./legal-notice.html">Impressum</a>.',
 
     "datenschutz.s2.h": "2. Allgemeines zur Datenverarbeitung",
     "datenschutz.s2.p1":
@@ -150,6 +153,7 @@ window.translations = {
       "Diese Datenschutzerklärung ist aktuell gültig. Durch die Weiterentwicklung meiner Website oder aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern.",
 
     "impressum.title": "Impressum",
+    "impressum.metaTitle": "Impressum - Justin Kamionka",
     "impressum.updated": "Stand: Juli 2026",
     "impressum.s1.h": "Angaben gemäß § 5 TMG",
     "impressum.s1.address":

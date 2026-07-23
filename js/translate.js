@@ -7,43 +7,47 @@ const supportedLangs = Object.keys(translations);
 const languageStorageKey = "preferredLang";
 let currentLang = document.documentElement.lang || "de";
 
-/** Updates one group of elements from a translation data attribute. */
-function translateElements(selector, datasetKey, applyValue) {
+/**
+ * Updates elements identified by a translation data attribute.
+ *
+ * @param {string} selector - CSS selector for the elements to translate.
+ * @param {string} datasetKey - Dataset property containing the translation key.
+ * @param {"textContent"|"innerHTML"|"placeholder"|"aria-label"} target - Property
+ * or attribute that receives the translated value.
+ * @returns {void}
+ */
+function translateElements(selector, datasetKey, target) {
   document.querySelectorAll(selector).forEach((element) => {
     const value = translations[currentLang][element.dataset[datasetKey]];
-    if (value !== undefined) applyValue(element, value);
+    if (value === undefined) return;
+    if (target === "aria-label") {
+      element.setAttribute(target, value);
+      return;
+    }
+    element[target] = value;
   });
 }
 
-/** Replaces translated text content. */
-function applyText(element, value) {
-  element.textContent = value;
-}
-
-/** Replaces trusted, project-owned translated HTML. */
-function applyHtml(element, value) {
-  element.innerHTML = value;
-}
-
-/** Replaces an input placeholder. */
-function applyPlaceholder(element, value) {
-  element.placeholder = value;
-}
-
-/** Replaces an accessible label. */
-function applyAriaLabel(element, value) {
-  element.setAttribute("aria-label", value);
-}
-
-/** Translates all supported text and attributes on the current document. */
+/**
+ * Translates all supported text, metadata, and attributes in the document.
+ *
+ * @returns {void}
+ */
 function translateDocument() {
-  translateElements("[data-i18n]", "i18n", applyText);
-  translateElements("[data-i18n-html]", "i18nHtml", applyHtml);
-  translateElements("[data-i18n-placeholder]", "i18nPlaceholder", applyPlaceholder);
-  translateElements("[data-i18n-aria]", "i18nAria", applyAriaLabel);
+  translateElements("[data-i18n]", "i18n", "textContent");
+  translateElements("[data-i18n-html]", "i18nHtml", "innerHTML");
+  translateElements("[data-i18n-placeholder]", "i18nPlaceholder", "placeholder");
+  translateElements("[data-i18n-aria]", "i18nAria", "aria-label");
+  const titleKey = document.body?.dataset.i18nTitle;
+  if (titleKey) document.title = translations[currentLang][titleKey] || document.title;
 }
 
-/** Applies a supported language and notifies dynamic components. */
+/**
+ * Applies a supported language and notifies dynamic components.
+ *
+ * @param {string} lang - Requested ISO language code.
+ * @returns {void}
+ */
 function applyLanguage(lang) {
   if (!supportedLangs.includes(lang)) return;
   currentLang = lang;
@@ -52,17 +56,30 @@ function applyLanguage(lang) {
   document.dispatchEvent(new CustomEvent("languagechange", { detail: { lang } }));
 }
 
-/** Returns the active language code. */
+/**
+ * Returns the active language code.
+ *
+ * @returns {string} The currently active language code.
+ */
 function getCurrentLang() {
   return currentLang;
 }
 
-/** Returns a translated value or its key when no translation exists. */
+/**
+ * Looks up a translation in the active dictionary.
+ *
+ * @param {string} key - Translation key.
+ * @returns {string} Translated value, or the key when it is missing.
+ */
 function t(key) {
   return translations[currentLang]?.[key] || key;
 }
 
-/** Reads the saved language while tolerating blocked browser storage. */
+/**
+ * Reads the saved language while tolerating blocked browser storage.
+ *
+ * @returns {string|null} Stored language code, if available.
+ */
 function getStoredLang() {
   try {
     return localStorage.getItem(languageStorageKey);
@@ -71,7 +88,12 @@ function getStoredLang() {
   }
 }
 
-/** Persists the selected language when browser storage is available. */
+/**
+ * Persists the selected language when browser storage is available.
+ *
+ * @param {string} lang - Supported language code.
+ * @returns {void}
+ */
 function storeLang(lang) {
   try {
     localStorage.setItem(languageStorageKey, lang);
@@ -80,14 +102,24 @@ function storeLang(lang) {
   }
 }
 
-/** Synchronizes the visual state of all language buttons. */
+/**
+ * Synchronizes the visual state of all language buttons.
+ *
+ * @param {string} lang - Active language code.
+ * @returns {void}
+ */
 function syncLanguageButtons(lang) {
   document.querySelectorAll(".lang-btn").forEach((button) => {
     button.classList.toggle("active", button.dataset.lang === lang);
   });
 }
 
-/** Handles a language button click. */
+/**
+ * Handles a language button click.
+ *
+ * @param {MouseEvent} event - Language-button click event.
+ * @returns {void}
+ */
 function selectLanguage(event) {
   const lang = event.currentTarget.dataset.lang;
   if (!supportedLangs.includes(lang)) return;
@@ -96,14 +128,22 @@ function selectLanguage(event) {
   syncLanguageButtons(lang);
 }
 
-/** Connects every language button to the translation service. */
+/**
+ * Connects every language button to the translation service.
+ *
+ * @returns {void}
+ */
 function bindLanguageButtons() {
   document.querySelectorAll(".lang-btn").forEach((button) => {
     button.addEventListener("click", selectLanguage);
   });
 }
 
-/** Initializes translations from the stored or document language. */
+/**
+ * Initializes translations from the stored or document language.
+ *
+ * @returns {void}
+ */
 function initializeTranslations() {
   const storedLang = getStoredLang();
   const initialLang = supportedLangs.includes(storedLang) ? storedLang : currentLang;

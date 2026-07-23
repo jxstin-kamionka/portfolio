@@ -11,12 +11,23 @@ const portfolioItems = document.querySelectorAll(".portfolio-list .portfolio-ite
  */
 const portfolioScrubbers = new Map();
 
-/** Draws one decoded GIF frame onto its canvas, dropping stale in-flight requests. */
+/**
+ * Creates a queued GIF-frame renderer that drops stale decode requests.
+ *
+ * @param {ImageDecoder} decoder - Browser image decoder for the GIF.
+ * @param {HTMLCanvasElement} canvas - Canvas receiving decoded frames.
+ * @returns {(frameIndex: number) => void} Function that requests a frame.
+ */
 function makeFrameDrawer(decoder, canvas) {
   const ctx = canvas.getContext("2d");
   let wantedFrame = null;
   let drawing = false;
 
+  /**
+   * Decodes the latest requested frame until no request remains.
+   *
+   * @returns {Promise<void>}
+   */
   async function drainQueue() {
     if (drawing) return;
     drawing = true;
@@ -42,22 +53,35 @@ function makeFrameDrawer(decoder, canvas) {
   };
 }
 
-/** Replaces a GIF <img> with a same-sized <canvas> once its frames are decodable. */
+/**
+ * Replaces a GIF image with a canvas once its frames are decodable.
+ *
+ * @param {Element} item - Portfolio item associated with the image.
+ * @param {HTMLImageElement} img - GIF image to make scroll-controlled.
+ * @returns {Promise<void>}
+ */
 async function createPortfolioScrubber(item, img) {
   if (!("ImageDecoder" in window)) return;
 
-  const response = await fetch(img.currentSrc || img.src);
-  const data = await response.arrayBuffer();
-  const decoder = new ImageDecoder({ data, type: "image/gif" });
-  await decoder.tracks.ready;
-  const frameCount = decoder.tracks.selectedTrack.frameCount;
-  if (!frameCount) return;
+  try {
+    const response = await fetch(img.currentSrc || img.src);
+    if (!response.ok) return;
+    const data = await response.arrayBuffer();
+    const decoder = new ImageDecoder({ data, type: "image/gif" });
+    await decoder.tracks.ready;
+    const frameCount = decoder.tracks.selectedTrack?.frameCount;
+    if (!frameCount) return;
 
-  const canvas = document.createElement("canvas");
-  canvas.className = img.className;
-  img.replaceWith(canvas);
-
-  portfolioScrubbers.set(item, { frameCount, draw: makeFrameDrawer(decoder, canvas) });
+    const canvas = document.createElement("canvas");
+    canvas.className = img.className;
+    img.replaceWith(canvas);
+    portfolioScrubbers.set(item, {
+      frameCount,
+      draw: makeFrameDrawer(decoder, canvas),
+    });
+  } catch {
+    // Keep the original looping GIF when loading or decoding is unavailable.
+  }
 }
 
 portfolioItems.forEach((item) => {
@@ -65,33 +89,63 @@ portfolioItems.forEach((item) => {
   if (img) createPortfolioScrubber(item, img);
 });
 
-/** Restricts a numeric value to the inclusive range from zero to one. */
+/**
+ * Restricts a numeric value to the inclusive range from zero to one.
+ *
+ * @param {number} value - Number to constrain.
+ * @returns {number} Constrained number.
+ */
 function clampProgress(value) {
   return Math.min(Math.max(value, 0), 1);
 }
 
-/** Calculates normalized progress through the portfolio track. */
+/**
+ * Calculates normalized progress through the portfolio track.
+ *
+ * @returns {number} Scroll progress between zero and one.
+ */
 function getPortfolioProgress() {
   const rect = portfolioTrack.getBoundingClientRect();
   const scrollable = rect.height - window.innerHeight;
   return scrollable > 0 ? clampProgress(-rect.top / scrollable) : 0;
 }
 
-/** Shows the frame matching how far scroll has moved through this item's segment. */
+/**
+ * Shows the frame matching the progress through an item's segment.
+ *
+ * @param {Element} item - Portfolio item whose frame should change.
+ * @param {number} localProgress - Item progress between zero and one.
+ * @returns {void}
+ */
 function updatePortfolioFrame(item, localProgress) {
   const scrubber = portfolioScrubbers.get(item);
   if (!scrubber) return;
   scrubber.draw(Math.round(localProgress * (scrubber.frameCount - 1)));
 }
 
-/** Updates one portfolio item for the current scroll segment. */
+/**
+ * Updates one portfolio item for the current scroll segment.
+ *
+ * @param {Element} item - Portfolio item to update.
+ * @param {number} index - Zero-based item index.
+ * @param {number} progress - Overall portfolio progress.
+ * @param {number} segment - Normalized size of one item segment.
+ * @param {number} activeIndex - Index of the visible item.
+ * @returns {void}
+ */
 function updatePortfolioItem(item, index, progress, segment, activeIndex) {
   item.classList.toggle("is-active", index === activeIndex);
   const localProgress = clampProgress((progress - index * segment) / segment);
   updatePortfolioFrame(item, localProgress);
 }
 
-/** Moves the ambient and stage glows while recording the active project. */
+/**
+ * Moves the stage glow and records the active project.
+ *
+ * @param {number} progress - Overall portfolio progress.
+ * @param {number} activeIndex - Index of the visible item.
+ * @returns {void}
+ */
 function updatePortfolioGlow(progress, activeIndex) {
   const shift = (progress - 0.5) * 90;
   if (!portfolioStage) return;
@@ -99,7 +153,11 @@ function updatePortfolioGlow(progress, activeIndex) {
   portfolioStage.style.setProperty("--stage-glow-y", `${shift * 1.8}px`);
 }
 
-/** Selects and positions portfolio items for the current scroll position. */
+/**
+ * Selects and positions portfolio items for the current scroll position.
+ *
+ * @returns {void}
+ */
 function updatePortfolio() {
   if (!portfolioTrack || !portfolioItems.length) return;
   const progress = getPortfolioProgress();
@@ -111,7 +169,11 @@ function updatePortfolio() {
   updatePortfolioGlow(progress, activeIndex);
 }
 
-/** Connects portfolio updates to scrolling and viewport resizing. */
+/**
+ * Connects portfolio updates to scrolling and viewport resizing.
+ *
+ * @returns {void}
+ */
 function initializePortfolio() {
   if (!portfolioTrack) return;
   window.addEventListener("scroll", updatePortfolio, { passive: true });

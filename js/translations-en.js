@@ -22,6 +22,8 @@ window.translations.en = {
 
     "skills.heading": "My Skills",
     "skills.learning": "Always learning",
+    "skills.learningTooltip":
+      "I am especially interested in learning these technologies next.",
     "skills.desc1":
       "The icons above show the technologies I regularly work with in my projects - from HTML, CSS and JavaScript to TypeScript and Angular, right through to Supabase as a backend for database and authentication. Git for version control and working with Scrum are just as much a part of that.",
     "skills.ctaTitle":
@@ -64,7 +66,7 @@ window.translations.en = {
     "contact.srMessage": "Your message",
     "contact.messagePlaceholder": "Your message",
     "contact.privacyText":
-      'I have read the <a href="./datenschutz.html" target="_blank" rel="noopener">privacy policy</a> and agree to my data being processed as described.',
+      'I have read the <a href="./privacy-policy.html">privacy policy</a> and agree to my data being processed as described.',
     "contact.submitBtn": "Send message :)",
     "contact.sending": "Sending...",
     "contact.successMessage":
@@ -86,6 +88,7 @@ window.translations.en = {
     "legal.back": "Back to homepage",
 
     "datenschutz.title": "Privacy Policy",
+    "datenschutz.metaTitle": "Privacy Policy - Justin Kamionka",
     "datenschutz.updated": "Last updated: July 2026",
     "datenschutz.s1.h": "1. Controller",
     "datenschutz.s1.p1":
@@ -93,7 +96,7 @@ window.translations.en = {
     "datenschutz.s1.address":
       '<strong>Justin Kamionka IT Dienstleistungen</strong><br />\n            <span class="legal-placeholder">Goldbachstraße 4, 97688 Bad Kissingen</span><br />\n            Email:\n            <a href="mailto:info@justinkamionka.de">info@justinkamionka.de</a>',
     "datenschutz.s1.p2":
-      'The full contact details can be found in the <a href="./impressum.html">legal notice</a>.',
+      'The full contact details can be found in the <a href="./legal-notice.html">legal notice</a>.',
 
     "datenschutz.s2.h": "2. General information on data processing",
     "datenschutz.s2.p1":
@@ -147,6 +150,7 @@ window.translations.en = {
       "This privacy policy is currently valid. Due to the further development of my website or changes to legal or regulatory requirements, it may become necessary to amend this privacy policy.",
 
     "impressum.title": "Legal Notice",
+    "impressum.metaTitle": "Legal Notice - Justin Kamionka",
     "impressum.updated": "Last updated: July 2026",
     "impressum.s1.h": "Information pursuant to § 5 TMG",
     "impressum.s1.address":

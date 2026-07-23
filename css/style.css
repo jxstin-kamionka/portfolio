@@ -483,8 +483,12 @@ body.nav-open-lock {
   gap: 24px;
 }
 
+/* Läuft von der Icon-Position aus nach links bis zum echten Bildschirmrand
+   (Container-Padding + Rest-Viewport), die Icons bleiben linksbündig. */
 .social-bar-line {
-  width: 90px;
+  --edge: max(32px, calc((100vw - var(--container-width)) / 2 + 32px));
+  width: calc(90px + var(--edge));
+  margin-left: calc(-1 * var(--edge));
   height: 2px;
   flex: 0 0 auto;
   background: linear-gradient(90deg, var(--color-purple), transparent);
@@ -1359,6 +1363,19 @@ body.nav-open-lock {
    sitzt die Überschrift mittig (1fr auto 1fr), bleibt also unverändert.
    Bei .contact-header steht "Kontakt" rechts, darum bleibt padding-right
    wie beim normalen Container, damit die Überschrift an Ort und Stelle bleibt. */
+@media (min-width: 1921px) {
+  .hero-screen {
+    height: calc(100dvh - 30dvh);
+  }
+
+  /* darf innerhalb der 70dvh schrumpfen, damit .hero-scroll (absolute am
+     unteren Hero-Rand) sichtbar bleibt statt unter der Social-Bar zu liegen */
+  .hero {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+}
+
 @media (min-width: 1440px) {
   .portfolio-header {
     max-width: none;
