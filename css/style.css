@@ -1364,15 +1364,16 @@ body.nav-open-lock {
    Bei .contact-header steht "Kontakt" rechts, darum bleibt padding-right
    wie beim normalen Container, damit die Überschrift an Ort und Stelle bleibt. */
 @media (min-width: 1921px) {
-  .hero-screen {
-    height: calc(100dvh - 30dvh);
+  /* .hero-screen bleibt bei calc(100dvh - 120px), damit der Startbildschirm
+     exakt 100dvh füllt und "Über mich" nicht durchblitzt. Nur der Hero wird
+     auf die 70dvh-Proportion gekappt; die Social-Bar füllt den Rest.
+     .hero-scroll sitzt am unteren Hero-Rand und bleibt so sichtbar. */
+  .hero {
+    flex: 0 0 70dvh;
   }
 
-  /* darf innerhalb der 70dvh schrumpfen, damit .hero-scroll (absolute am
-     unteren Hero-Rand) sichtbar bleibt statt unter der Social-Bar zu liegen */
-  .hero {
-    flex: 1 1 auto;
-    min-height: 0;
+  .social-bar {
+    flex: 1 0 auto;
   }
 }
 
